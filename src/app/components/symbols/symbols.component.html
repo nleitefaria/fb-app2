@@ -1,0 +1,30 @@
+<br>
+<div class="container">
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="">Home</a></li>
+  <li class="breadcrumb-item active">{{location}}</li>
+</ol>
+</div>
+<div class="container"> 
+    <table class="table">
+  	<thead>
+    	<tr>     
+      		<th scope="col">Symbol</th>
+      		<th scope="col">Name</th>
+      		<th scope="col">Date</th>
+      		<th scope="col">Is enabled</th>    
+      		<th scope="col"></th>
+    	</tr>
+  	</thead>
+  	<tbody>
+    	<tr *ngFor="let symbol of symbols | paginate: { itemsPerPage: 10, currentPage: p }">
+      		<td>{{symbol.symbol}}</td>
+      		<td>{{symbol.name}}</td>
+      		<td>{{symbol.date}}</td>
+      		<td>{{symbol.isEnabled}}</td>   
+      		<td><a href="symbols-details/{{symbol.symbol}}" class="btn btn-primary">Details</a></td>
+    	</tr>
+  	</tbody>
+	</table>           
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
