@@ -10,6 +10,7 @@ import { SymbolsService } from '../../services/symbols.service';
 
 export class SymbolsComponent implements OnInit
 {
+	p: number = 1;
 	symbols: any;
     location: string = 'Symbols';
 
