@@ -1,0 +1,26 @@
+<br>
+<div class="container">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="">Home</a></li>
+		<li class="breadcrumb-item active">{{location}}</li>
+	</ol>
+</div>
+<div class="container">
+	<form>
+		<div class="form-row align-items-center">
+			<div class="col-sm-1 my-1">
+				<label for="power"><b>Company :</b></label>
+			</div>
+			<div class="col-sm-3 my-1">
+				<select class="form-control" id="power" required>
+					<option [value]="">Choose one</option>
+					<option *ngFor="let symbol of symbols" [value]="symbol.symbol">{{symbol.name}}</option>
+				</select>
+			</div>
+			<div class="col-auto my-1">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</div>
+	</form>
+
+</div>
