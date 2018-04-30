@@ -14,6 +14,13 @@ export class CompaniesService {
   	{ 
   	}
   	
+  	public getCompany(symb: string):any
+    { 	
+    	return this.http.get(`${this.BASE_URL}stock/${symb}/company`)
+			.map((response:Response) => response.json())
+			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
+	}
+  	
   	
 
 }
