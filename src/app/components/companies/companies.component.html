@@ -5,22 +5,40 @@
 		<li class="breadcrumb-item active">{{location}}</li>
 	</ol>
 </div>
-<div class="container">
-	<form>
-		<div class="form-row align-items-center">
-			<div class="col-sm-1 my-1">
-				<label for="power"><b>Company :</b></label>
+
+<div class="container" *ngIf="symbolsLoading == true">
+<b>Loading data. Please wait...</b>
+</div>
+
+<div class="container" *ngIf="symbolsLoading == false">
+	<form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">	
+		<div class="form-group">
+		<div class="row">
+  			<div class="col"><select class="form-control" formControlName="symb">
+				<option value="">Please select a Company</option>
+				<option *ngFor="let symbol of symbols" [value]="symbol.symbol">{{symbol.name}}
+				</option>
+			</select>
 			</div>
-			<div class="col-sm-3 my-1">
-				<select class="form-control" id="power" required>
-					<option [value]="">Choose one</option>
-					<option *ngFor="let symbol of symbols" [value]="symbol.symbol">{{symbol.name}}</option>
-				</select>
-			</div>
-			<div class="col-auto my-1">
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</div>
+			<div class="col"><button type="submit" class="btn btn-primary">Search</button></div>
+		</div>
 		</div>
 	</form>
+</div>
+
+<div class="container" *ngIf="company != null">
+
+	<div class="row">
+  			<div class="col-1"><b>Symbol: </b></div>
+			<div class="col">{{company?.symbol}}</div>
+	</div>	
+	<div class="row">
+  			<div class="col-1"><b>Name: </b></div>
+			<div class="col">{{company?.companyName}}</div>
+	</div>	
+	<div class="row">
+  			<div class="col-1"><b>Exchange: </b></div>
+			<div class="col">{{company?.exchange}}</div>
+	</div>
 
 </div>
