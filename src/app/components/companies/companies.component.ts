@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { SymbolsService } from '../../services/symbols.service';
 import { CompaniesService } from '../../services/companies.service';
+import { EarningsService } from '../../services/earnings.service';
 
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.css'],
-  providers: [SymbolsService, CompaniesService]
+  providers: [SymbolsService, CompaniesService, EarningsService]
 })
 
 export class CompaniesComponent implements OnInit 
@@ -16,10 +17,11 @@ export class CompaniesComponent implements OnInit
 	symbols : any;
 	symbolsLoading : boolean;
 	company : any;
+	earnings : any[];
   	myform: FormGroup;
   	symb: FormControl;
 	
-	constructor(private httpService : SymbolsService, private httpService1 : CompaniesService) 
+	constructor(private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService) 
 	{ 
     }
 
@@ -48,6 +50,7 @@ export class CompaniesComponent implements OnInit
     	if (this.myform.valid)
     	{
       		this.getCompany(this.myform.value.symb);
+      		this.getEarnings(this.myform.value.symb);
     	}
   	}
     
@@ -76,6 +79,22 @@ export class CompaniesComponent implements OnInit
 					alert('Server Error');
 				} else {																																
 					this.company = response;															
+				}
+			},
+			error =>{
+				alert('Server error');
+			}
+		);
+    }
+    
+    getEarnings(sym : string)
+    {
+    	this.httpService2.getEarnings(sym).subscribe(
+			response =>{
+				if(response.error) { 
+					alert('Server Error');
+				} else {																																
+					this.earnings = response.earnings;														
 				}
 			},
 			error =>{

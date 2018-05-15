@@ -40,5 +40,67 @@
   			<div class="col-1"><b>Exchange: </b></div>
 			<div class="col">{{company?.exchange}}</div>
 	</div>
-
+	<div class="row">
+  			<div class="col-1"><b>Industry: </b></div>
+			<div class="col">{{company?.industry}}</div>
+	</div>
+	<div class="row">
+  			<div class="col-1"><b>Website: </b></div>
+			<div class="col">{{company?.website}}</div>
+	</div>
+	<div class="row">
+  			<div class="col-1"><b>CEO: </b></div>
+			<div class="col">{{company?.CEO}}</div>
+	</div>
+	<br>
+	<div class="container">
+		<div class="bd-example bd-example-tabs">
+  			<nav class="nav nav-tabs" id="nav-tab" role="tablist">
+    			<a class="nav-item nav-link active" id="nav-earnings-tab" data-toggle="tab" href="#nav-earnings" role="tab" aria-controls="earnings" aria-expanded="true">Earnings</a>
+    			<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="profile" aria-expanded="false">Profile</a>
+  			</nav>
+  			<div class="tab-content" id="nav-tabContent">
+    			<div class="tab-pane fade active show" id="nav-earnings" role="tabpanel" aria-labelledby="nav-earnings-tab" aria-expanded="true">
+    				<br>
+    				<table class="table table-hover" *ngFor="let earning of earnings">
+    					<thead>
+      						<tr>
+        						<th>Actual EPS</th>
+        						<th>Consensus EPS</th>
+        						<th>Estimated EPS</th>
+        						<th>Announce Time</th>
+        						<th>Number Of Estimates</th>
+        						<th>Estimated EPS</th>
+        						<th>Fiscal Period</th>
+        						<th>Fiscal End Date</th>
+      						</tr>
+    					</thead>
+    					<tbody>
+      						<tr>
+        						<td>{{earning.actualEPS}}</td>
+        						<td>{{earning.consensusEPS}}</td>
+        						<td>{{earning.estimatedEPS}}</td>
+        						<td>{{earning.announceTime}}</td>
+        						<td>{{earning.numberOfEstimates}}</td>
+        						<td>{{earning.estimatedEPS}}</td>
+        						<td>{{earning.fiscalPeriod}}</td>
+        						<td>{{earning.fiscalEndDate}}</td>
+      						</tr>
+    					</tbody>
+  					</table>
+    			</div>
+    			<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" aria-expanded="false">
+      				<br>
+      				<p>TODO</p>
+    			</div>
+  </div>
+</div>
+		
+		
+		
+		
+		
+		
+		
+	</div>
 </div>
