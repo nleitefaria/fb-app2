@@ -57,7 +57,7 @@
 		<div class="bd-example bd-example-tabs">
   			<nav class="nav nav-tabs" id="nav-tab" role="tablist">
     			<a class="nav-item nav-link active" id="nav-earnings-tab" data-toggle="tab" href="#nav-earnings" role="tab" aria-controls="earnings" aria-expanded="true">Earnings</a>
-    			<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="profile" aria-expanded="false">Profile</a>
+    			<a class="nav-item nav-link" id="nav-effective-spread-tab" data-toggle="tab" href="#nav-effective-spread" role="tab" aria-controls="profile" aria-expanded="false">Effective spread</a>
   			</nav>
   			<div class="tab-content" id="nav-tabContent">
     			<div class="tab-pane fade active show" id="nav-earnings" role="tabpanel" aria-labelledby="nav-earnings-tab" aria-expanded="true">
@@ -89,9 +89,30 @@
     					</tbody>
   					</table>
     			</div>
-    			<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" aria-expanded="false">
+    			<div class="tab-pane fade" id="nav-effective-spread" role="tabpanel" aria-labelledby="nav-effective-spread-tab" aria-expanded="false">
       				<br>
-      				<p>TODO</p>
+    				<table class="table table-hover" *ngFor="let effectiveSpread of effectiveSpreads">
+    					<thead>
+      						<tr>
+        						<th style="width:15%">Volume</th>
+        						<th style="width:5%">Venue</th>
+        						<th style="width:15%">Venue Name</th>
+        						<th style="width:25%">Effective Spread</th>
+        						<th style="width:15%">Effective Quoted</th>
+        						<th>Price Improvement</th>     						
+      						</tr>
+    					</thead>
+    					<tbody>
+      						<tr>
+        						<td>{{effectiveSpread.volume}}</td>
+        						<td>{{effectiveSpread.venue}}</td>
+        						<td>{{effectiveSpread.venueName}}</td>
+        						<td>{{effectiveSpread.effectiveSpread}}</td>
+        						<td>{{effectiveSpread.effectiveQuoted}}</td>
+        						<td>{{effectiveSpread.priceImprovement}}</td>       						
+      						</tr>
+    					</tbody>
+  					</table>
     			</div>
   </div>
 </div>

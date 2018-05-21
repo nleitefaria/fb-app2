@@ -3,12 +3,13 @@ import { FormsModule, FormGroup, FormControl, Validators, FormBuilder } from '@a
 import { SymbolsService } from '../../services/symbols.service';
 import { CompaniesService } from '../../services/companies.service';
 import { EarningsService } from '../../services/earnings.service';
+import { EffectiveSpreadService } from '../../services/effective-spread.service';
 
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.css'],
-  providers: [SymbolsService, CompaniesService, EarningsService]
+  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService]
 })
 
 export class CompaniesComponent implements OnInit 
@@ -18,10 +19,11 @@ export class CompaniesComponent implements OnInit
 	symbolsLoading : boolean;
 	company : any;
 	earnings : any[];
+	effectiveSpreads : any[];
   	myform: FormGroup;
   	symb: FormControl;
 	
-	constructor(private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService) 
+	constructor(private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService, private httpService3 : EffectiveSpreadService) 
 	{ 
     }
 
@@ -51,6 +53,7 @@ export class CompaniesComponent implements OnInit
     	{
       		this.getCompany(this.myform.value.symb);
       		this.getEarnings(this.myform.value.symb);
+      		this.getEffectiveSpreads(this.myform.value.symb);
     	}
   	}
     
@@ -95,6 +98,23 @@ export class CompaniesComponent implements OnInit
 					alert('Server Error');
 				} else {																																
 					this.earnings = response.earnings;														
+				}
+			},
+			error =>{
+				alert('Server error');
+			}
+		);
+    }
+    
+    getEffectiveSpreads(sym : string)
+    {
+    	this.httpService3.getEffectiveSpreads(sym).subscribe(
+			response =>{
+				if(response.error) { 
+					alert('Server Error');
+				} else {																																
+					this.effectiveSpreads = response;
+					alert(this.effectiveSpreads);														
 				}
 			},
 			error =>{

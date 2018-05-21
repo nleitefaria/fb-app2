@@ -6,19 +6,21 @@ import 'rxjs/add/operator/catch';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class EarningsService {
-
+export class EffectiveSpreadService 
+{
     private BASE_URL:string = environment.apiUrl;
 
   	constructor(private http:Http) 
   	{ 
   	}
   	
-  	public getEarnings(symb: string):any
+  	public getEffectiveSpreads(symb: string):any
     { 	
-    	return this.http.get(`${this.BASE_URL}stock/${symb}/earnings`)
+    	return this.http.get(`${this.BASE_URL}stock/${symb}/effective-spread`)
 			.map((response:Response) => response.json())
 			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
 	}
+
+  
 
 }
