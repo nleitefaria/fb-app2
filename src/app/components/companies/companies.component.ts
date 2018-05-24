@@ -4,12 +4,13 @@ import { SymbolsService } from '../../services/symbols.service';
 import { CompaniesService } from '../../services/companies.service';
 import { EarningsService } from '../../services/earnings.service';
 import { EffectiveSpreadService } from '../../services/effective-spread.service';
+import { FinancialsService } from '../../services/financials.service';
 
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.css'],
-  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService]
+  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService]
 })
 
 export class CompaniesComponent implements OnInit 
@@ -20,10 +21,11 @@ export class CompaniesComponent implements OnInit
 	company : any;
 	earnings : any[];
 	effectiveSpreads : any[];
+	financials: any[];
   	myform: FormGroup;
   	symb: FormControl;
 	
-	constructor(private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService, private httpService3 : EffectiveSpreadService) 
+	constructor(private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService, private httpService3 : EffectiveSpreadService, private httpService4 : FinancialsService) 
 	{ 
     }
 
@@ -54,6 +56,7 @@ export class CompaniesComponent implements OnInit
       		this.getCompany(this.myform.value.symb);
       		this.getEarnings(this.myform.value.symb);
       		this.getEffectiveSpreads(this.myform.value.symb);
+      		this.getFinancials(this.myform.value.symb);
     	}
   	}
     
@@ -113,8 +116,23 @@ export class CompaniesComponent implements OnInit
 				if(response.error) { 
 					alert('Server Error');
 				} else {																																
-					this.effectiveSpreads = response;
-					alert(this.effectiveSpreads);														
+					this.effectiveSpreads = response;												
+				}
+			},
+			error =>{
+				alert('Server error');
+			}
+		);
+    }
+    
+    getFinancials(sym : string)
+    {
+    	this.httpService4.getFinancials(sym).subscribe(
+			response =>{
+				if(response.error) { 
+					alert('Server Error');
+				} else {																																
+					this.financials = response.financials;												
 				}
 			},
 			error =>{
