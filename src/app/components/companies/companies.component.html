@@ -58,6 +58,7 @@
   			<nav class="nav nav-tabs" id="nav-tab" role="tablist">
     			<a class="nav-item nav-link active" id="nav-earnings-tab" data-toggle="tab" href="#nav-earnings" role="tab" aria-controls="earnings" aria-expanded="true">Earnings</a>
     			<a class="nav-item nav-link" id="nav-effective-spread-tab" data-toggle="tab" href="#nav-effective-spread" role="tab" aria-controls="profile" aria-expanded="false">Effective spread</a>
+    			<a class="nav-item nav-link" id="nav-financials-tab" data-toggle="tab" href="#nav-financials" role="tab" aria-controls="financials" aria-expanded="false">Financials</a>
   			</nav>
   			<div class="tab-content" id="nav-tabContent">
     			<div class="tab-pane fade active show" id="nav-earnings" role="tabpanel" aria-labelledby="nav-earnings-tab" aria-expanded="true">
@@ -114,14 +115,66 @@
     					</tbody>
   					</table>
     			</div>
-  </div>
-</div>
-		
-		
-		
-		
-		
-		
-		
+    			
+    			<div class="tab-pane fade" id="nav-financials" role="tabpanel" aria-labelledby="nav-financials-tab" aria-expanded="true">
+    				<br>   				 					
+  					<div *ngFor="let financial of financials">
+  						<div class="row">
+  							<div class="col-3"><b>Report Date: </b></div>
+							<div class="col"><b>{{financial.reportDate}}</b></div>
+						</div>
+						<div class="row">
+  							<div class="col-3"><b>Gross Profit: </b></div>
+							<div class="col">{{financial.grossProfit}}</div>
+						</div>						
+						<div class="row">
+  							<div class="col-3"><b>Cost of Revenue: </b></div>
+							<div class="col">{{financial.costOfRevenue}}</div>
+						</div>						
+						<div class="row">
+  							<div class="col-3"><b>Operating Revenue: </b></div>
+							<div class="col">{{financial.operatingRevenue}}</div>
+						</div>						
+						<div class="row">
+  							<div class="col-3"><b>Total Revenue: </b></div>
+							<div class="col">{{financial.totalRevenue}}</div>
+						</div>						
+						<div class="row">
+  							<div class="col-3"><b>Operating Income: </b></div>
+							<div class="col">{{financial.operatingIncome}}</div>
+						</div>						
+						<div class="row">
+  							<div class="col-3"><b>Total Revenue: </b></div>
+							<div class="col">{{financial.totalRevenue}}</div>
+						</div>						
+						<div class="row">
+  							<div class="col-3"><b>Net Income: </b></div>
+							<div class="col">{{financial.netIncome}}</div>
+						</div>					
+						<div class="row">
+  							<div class="col-3"><b>Research And Development: </b></div>
+							<div class="col">{{financial.researchAndDevelopment}}</div>
+						</div>						
+						<div class="row">
+  							<div class="col-3"><b>Operating Expense: </b></div>
+							<div class="col">{{financial.operatingExpense}}</div>
+						</div>						
+						<div class="row">
+  							<div class="col-3"><b>Cash Change: </b></div>
+							<div class="col">{{financial.cashChange}}</div>
+						</div>						
+						<div class="row">
+  							<div class="col-3"><b>Cash Flow: </b></div>
+							<div class="col">{{financial.cashFlow}}</div>
+						</div>						
+						<div class="row">
+  							<div class="col-3"><b>Operating Gains Losses: </b></div>
+							<div class="col">{{financial.operatingGainsLosses}}</div>
+						</div>												
+  						<hr/>
+  					</div>		
+    			</div> 
+  			</div>
+		</div>	
 	</div>
 </div>
