@@ -2,9 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
 
-It is a client for the IEX Restful API : https://iextrading.com/developer/docs/#getting-started
+It is a client for the IEX [RESTful API](https://iextrading.com/developer/docs/#getting-started)
 
 Technologies: Angular 5 + Bootstrap 4 + Firebase + Travis CI
+
+[Demo](https://fb-app2-5b32b.firebaseapp.com/)
 
 ## Development server
 
