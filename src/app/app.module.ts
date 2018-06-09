@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SymbolsComponent } from './components/symbols/symbols.component';
 import { CompaniesComponent } from './components/companies/companies.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SymbolsComponent,
-    CompaniesComponent
+    CompaniesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
