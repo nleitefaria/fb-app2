@@ -1,26 +1,30 @@
 <div class="container">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="">Home</a></li>
-		<li class="breadcrumb-item active">{{location}}</li>
+		<li class="breadcrumb-item"><a href="/{{location}}">Symbols</a></li>
+		<li class="breadcrumb-item active">{{id}}</li>
 	</ol>
 </div>
 
 <div class="container" *ngIf="symbolsLoading == true">
-<b>Loading data. Please wait...</b>
+	<b>Loading data. Please wait...</b>
 </div>
 
 <div class="container" *ngIf="symbolsLoading == false">
-	<form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">	
+	<form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">
 		<div class="form-group">
-		<div class="row">
-  			<div class="col"><select class="form-control" formControlName="symb">
-				<option value="">Please select a Company</option>
-				<option *ngFor="let symbol of symbols" [value]="symbol.symbol">{{symbol.name}}
-				</option>
-			</select>
+			<div class="row">
+				<div class="col">
+					<select class="form-control" formControlName="symb">
+						<option value="">Please select a Company</option>
+						<option *ngFor="let symbol of symbols" [value]="symbol.symbol">{{symbol.name}}
+						</option>
+					</select>
+				</div>
+				<div class="col">
+					<button type="submit" class="btn btn-primary">Search</button>
+				</div>
 			</div>
-			<div class="col"><button type="submit" class="btn btn-primary">Search</button></div>
-		</div>
 		</div>
 	</form>
 </div>

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
 import { SymbolsComponent } from './components/symbols/symbols.component';
+import { SymbolDetailsComponent } from './components/symbols/symbol-details.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
 	{
 		path: 'symbols',
 		component: SymbolsComponent
+	},
+	{
+		path: 'symbol-details/:id',
+		component: SymbolDetailsComponent
 	},
 	{
 		path: 'companies',

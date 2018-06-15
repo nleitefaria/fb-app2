@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { SymbolsComponent } from './components/symbols/symbols.component';
+import { SymbolDetailsComponent } from './components/symbols/symbol-details.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { HomeComponent } from './components/home/home.component';
 
@@ -17,7 +18,8 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     SymbolsComponent,
     CompaniesComponent,
-    HomeComponent
+    HomeComponent,
+    SymbolDetailsComponent
   ],
   imports: [
     BrowserModule,
