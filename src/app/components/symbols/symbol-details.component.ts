@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { SymbolsService } from '../../services/symbols.service';
 import { CompaniesService } from '../../services/companies.service';
 import { EarningsService } from '../../services/earnings.service';
@@ -8,79 +8,47 @@ import { FinancialsService } from '../../services/financials.service';
 import { LogosService } from '../../services/logos.service';
 
 @Component({
-  selector: 'app-companies',
-  templateUrl: './companies.component.html',
-  styleUrls: ['./companies.component.css'],
+  selector: 'app-symbol-details',
+  templateUrl: './symbol-details.component.html',
+  styleUrls: ['./symbol-details.component.css'],
   providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService]
 })
 
-export class CompaniesComponent implements OnInit 
-{
-	location: string = 'Companies';	
+export class SymbolDetailsComponent implements OnInit {
+
+	id: string;
 	logo : any;
+	location: string = 'symbols';	
 	symbols : any;
 	symbolsLoading : boolean;
 	company : any;
 	earnings : any[];
 	effectiveSpreads : any[];
 	financials: any[];
-  	myform: FormGroup;
-  	symb: FormControl;
 	
-	constructor(private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService, private httpService3 : EffectiveSpreadService, private httpService4 : FinancialsService, private httpService5 : LogosService) 
-	{ 
-    }
-
-    ngOnInit() 
-    {
-    	this.symbolsLoading = true;
-    	this.createFormControls();
-    	this.createForm();
-    	this.init();    	 
-    }
-    
-    createFormControls() 
-    {   
-    	this.symb = new FormControl('');
-  	}
-
-  	createForm() 
+  constructor(private route: ActivatedRoute, private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService, private httpService3 : EffectiveSpreadService, private httpService4 : FinancialsService, private httpService5 : LogosService) 
   	{
-    	this.myform = new FormGroup({
-      		symb: this.symb
-    	});
+  		this.route.params.subscribe((params) => 
+  		{
+  			this.id = params.id; 				
+		});	
   	}
 
-  	onSubmit() 
-  	{
-    	if (this.myform.valid)
-    	{
-      		this.getCompany(this.myform.value.symb);
-      		this.getEarnings(this.myform.value.symb);
-      		this.getEffectiveSpreads(this.myform.value.symb);
-      		this.getFinancials(this.myform.value.symb);
-      		this.getLogo(this.myform.value.symb);	
-    	}
+  	ngOnInit()
+    {	
+  		this.init(); 		 		
   	}
-    
-    init()
-    {  
-        this.httpService.getSymbols().subscribe(
-			response =>{
-				if(response.error) { 
-					alert('Server Error');
-				} else {																																
-					this.symbols = response;
-					this.symbolsLoading = false;															
-				}
-			},
-			error =>{
-				alert('Server error');
-			}
-		);
-    }
-    
-    getCompany(sym : string)
+  	
+  	init()
+  	{
+  		this.getCompany(this.id);
+      	this.getEarnings(this.id);
+      	this.getEffectiveSpreads(this.id);
+      	this.getFinancials(this.id);	
+      	this.getLogo(this.id);	
+  	}
+  	
+  	getCompany(sym : string)
     {
     	this.httpService1.getCompany(sym).subscribe(
 			response =>{
@@ -159,5 +127,5 @@ export class CompaniesComponent implements OnInit
 			}
 		);
     }
-     
+
 }
