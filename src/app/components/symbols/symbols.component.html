@@ -10,7 +10,7 @@
     	<tr>     
       		<th scope="col">Symbol</th>
       		<th scope="col">Name</th>
-      		<th scope="col">Date</th>
+      		<th scope="col">Last update</th>
       		<th scope="col">Is enabled</th>    
       		<th scope="col"></th>
     	</tr>
@@ -20,8 +20,9 @@
       		<td>{{symbol.symbol}}</td>
       		<td>{{symbol.name}}</td>
       		<td>{{symbol.date}}</td>
-      		<td>{{symbol.isEnabled}}</td>   
-      		<td><a href="symbol-details/{{symbol.symbol}}" class="btn btn-primary">Details</a></td>
+      		<td *ngIf="symbol.isEnabled === true"><span style="background-color: green;color: white">Yes</span></td>
+      		<td *ngIf="symbol.isEnabled === false"><span style="background-color: red;color: white">No</span></td> 
+      		<td><a href="symbol-details/{{symbol.symbol}}" class="btn btn-primary btn-sm">Details</a></td>
     	</tr>
   	</tbody>
 	</table>           
