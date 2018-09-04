@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SymbolsComponent } from './components/symbols/symbols.component';
 import { SymbolDetailsComponent } from './components/symbols/symbol-details.component';
 import { CompaniesComponent } from './components/companies/companies.component';
+import { MarketsComponent } from './components/markets/markets.component';
 
 const routes: Routes = [
 	{
@@ -22,6 +23,10 @@ const routes: Routes = [
 	{
 		path: 'companies',
 		component: CompaniesComponent
+	},
+	{
+		path: 'markets',
+		component: MarketsComponent
 	}
 ];
 
