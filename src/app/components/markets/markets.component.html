@@ -12,6 +12,9 @@
       		<th scope="col">Mic</th>
       		<th scope="col">Tape Id</th>
       		<th scope="col">Venue Name</th>
+      		<th scope="col">Volume</th>
+      		<th scope="col">Market percent</th>
+      		<th scope="col">Last updated</th>
     	</tr>
   	</thead>
   	<tbody>
@@ -19,6 +22,9 @@
       		<td>{{market.mic}}</td>
       		<td>{{market.tapeId}}</td>
       		<td>{{market.venueName}}</td>
+      		<td>{{market.volume}}</td>
+      		<td>{{market.marketPercent}}</td>
+      		<td>{{market.lastUpdated | date: 'dd/MM/yyyy'}}</td>
     	</tr>
   	</tbody>
 	</table>           
