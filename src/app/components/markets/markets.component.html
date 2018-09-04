@@ -4,3 +4,22 @@
 		<li class="breadcrumb-item active">{{location}}</li>
 	</ol>
 </div>
+
+<div class="container"> 
+    <table class="table">
+  	<thead>
+    	<tr>     
+      		<th scope="col">Mic</th>
+      		<th scope="col">Tape Id</th>
+      		<th scope="col">Venue Name</th>
+    	</tr>
+  	</thead>
+  	<tbody>
+    	<tr *ngFor="let market of markets">
+      		<td>{{market.mic}}</td>
+      		<td>{{market.tapeId}}</td>
+      		<td>{{market.venueName}}</td>
+    	</tr>
+  	</tbody>
+	</table>           
+</div>

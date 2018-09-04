@@ -8,9 +8,11 @@ import { MarketsService } from '../../services/markets.service';
   styleUrls: ['./markets.component.css'],
   providers: [MarketsService]
 })
+
 export class MarketsComponent implements OnInit
 {
-	location: string = 'Markets';	
+	location: string = 'Markets';
+	markets : any;	
 
   	constructor(private httpService : MarketsService) { }
 
@@ -21,8 +23,23 @@ export class MarketsComponent implements OnInit
   	
   	init()
   	{
-  		console.log('Vou chamar o serviço');
-  		this.httpService.getAllMarkets();
+  		this.httpService.getAllMarkets().subscribe(
+			response =>
+			{
+				if(response.error) 
+				{ 
+					alert('Server Error');
+				} 
+				else 
+				{																																
+					this.markets = response;															
+				}
+			},
+			error =>
+			{
+				alert('Server error');
+			}
+		);	
   	}
-
+  	
 }

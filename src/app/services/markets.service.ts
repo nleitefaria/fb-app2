@@ -15,11 +15,10 @@ export class MarketsService
   	}
   	
   	public getAllMarkets():any
-  	{
-  	
-  		alert("@getAllMarkets");
-  	
-  	
+  	{	
+  		return this.http.get(`${this.BASE_URL}market`)
+			.map((response:Response) => response.json())
+			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
   	}
 
 }
