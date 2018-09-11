@@ -6,12 +6,13 @@ import { EarningsService } from '../../services/earnings.service';
 import { EffectiveSpreadService } from '../../services/effective-spread.service';
 import { FinancialsService } from '../../services/financials.service';
 import { LogosService } from '../../services/logos.service';
+import { BooksService } from '../../services/books.service';
 
 @Component({
   selector: 'app-symbol-details',
   templateUrl: './symbol-details.component.html',
   styleUrls: ['./symbol-details.component.css'],
-  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService]
+  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService]
 })
 
 export class SymbolDetailsComponent implements OnInit {
@@ -25,8 +26,10 @@ export class SymbolDetailsComponent implements OnInit {
 	earnings : any[];
 	effectiveSpreads : any[];
 	financials: any[];
+	book : any;
+	trades : any[]; 
 	
-  constructor(private route: ActivatedRoute, private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService, private httpService3 : EffectiveSpreadService, private httpService4 : FinancialsService, private httpService5 : LogosService) 
+  constructor(private route: ActivatedRoute, private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService, private httpService3 : EffectiveSpreadService, private httpService4 : FinancialsService, private httpService5 : LogosService, private httpService6 : BooksService) 
   	{
   		this.route.params.subscribe((params) => 
   		{
@@ -45,7 +48,8 @@ export class SymbolDetailsComponent implements OnInit {
       	this.getEarnings(this.id);
       	this.getEffectiveSpreads(this.id);
       	this.getFinancials(this.id);	
-      	this.getLogo(this.id);	
+      	this.getLogo(this.id);
+      	this.getBook(this.id);
   	}
   	
   	getCompany(sym : string)
@@ -120,6 +124,24 @@ export class SymbolDetailsComponent implements OnInit {
 					alert('Server Error');
 				} else {																																
 					this.logo = response.url;												
+				}
+			},
+			error =>{
+				alert('Server error');
+			}
+		);
+    }
+    
+    getBook(sym : string)
+    {
+    	this.httpService6.getBook(sym).subscribe(
+			response =>{
+				if(response.error) { 
+					alert('Server Error');
+				} else {
+																																			
+					this.book = response;
+					this.trades = this.book.trades;														
 				}
 			},
 			error =>{

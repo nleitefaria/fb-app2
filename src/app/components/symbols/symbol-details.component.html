@@ -92,6 +92,9 @@
 				<a class="nav-item nav-link" id="nav-financials-tab"
 					data-toggle="tab" href="#nav-financials" role="tab"
 					aria-controls="financials" aria-expanded="false">Financials</a>
+				<a class="nav-item nav-link" id="nav-books-tab"
+					data-toggle="tab" href="#nav-books" role="tab"
+					aria-controls="books" aria-expanded="false">Trades</a>
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -239,6 +242,69 @@
 						</div>
 						<hr />
 					</div>
+				</div>
+				<div class="tab-pane fade" id="nav-books" role="tabpanel"
+					aria-labelledby="nav-books-tab" aria-expanded="true">
+					<br>
+					<div *ngFor="let trade of trades">
+						<div class="row">
+							<div class="col-3">
+								<b>Price: </b>
+							</div>
+							<div class="col">
+								<b>{{trade.price}}</b>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Size: </b>
+							</div>
+							<div class="col">{{trade.size}}</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Trade Id: </b>
+							</div>
+							<div class="col">{{trade.tradeId}}</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Is ISO: </b>
+							</div>
+							<div class="col">{{trade.isISO}}</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Is Odd Lot: </b>
+							</div>
+							<div class="col">{{trade.isOddLot}}</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Is Outside Regular Hours: </b>
+							</div>
+							<div class="col">{{trade.isOutsideRegularHours}}</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Is Single Price Cross: </b>
+							</div>
+							<div class="col">{{trade.isSinglePriceCross}}</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Is Trade Through Exempt: </b>
+							</div>
+							<div class="col">{{trade.isTradeThroughExempt}}</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Timestamp: </b>
+							</div>
+							<div class="col">{{trade.timestamp}}</div>
+						</div>					
+						<hr />
+					</div>			
 				</div>
 			</div>
 		</div>
