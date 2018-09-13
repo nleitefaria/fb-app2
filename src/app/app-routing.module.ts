@@ -6,6 +6,7 @@ import { SymbolsComponent } from './components/symbols/symbols.component';
 import { SymbolDetailsComponent } from './components/symbols/symbol-details.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { MarketsComponent } from './components/markets/markets.component';
+import { IposComponent } from './components/ipos/ipos.component';
 
 const routes: Routes = [
 	{
@@ -27,6 +28,10 @@ const routes: Routes = [
 	{
 		path: 'markets',
 		component: MarketsComponent
+	},
+	{
+		path: 'ipos',
+		component: IposComponent
 	}
 ];
 

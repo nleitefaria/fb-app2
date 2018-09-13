@@ -15,8 +15,8 @@ import { BooksService } from '../../services/books.service';
   providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService]
 })
 
-export class SymbolDetailsComponent implements OnInit {
-
+export class SymbolDetailsComponent implements OnInit 
+{
 	id: string;
 	logo : any;
 	location: string = 'symbols';	
@@ -28,6 +28,7 @@ export class SymbolDetailsComponent implements OnInit {
 	financials: any[];
 	book : any;
 	trades : any[]; 
+	ipo : any;
 	
   constructor(private route: ActivatedRoute, private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService, private httpService3 : EffectiveSpreadService, private httpService4 : FinancialsService, private httpService5 : LogosService, private httpService6 : BooksService) 
   	{
@@ -149,5 +150,4 @@ export class SymbolDetailsComponent implements OnInit {
 			}
 		);
     }
-
 }
