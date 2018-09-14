@@ -92,9 +92,12 @@
 				<a class="nav-item nav-link" id="nav-financials-tab"
 					data-toggle="tab" href="#nav-financials" role="tab"
 					aria-controls="financials" aria-expanded="false">Financials</a>
-				<a class="nav-item nav-link" id="nav-books-tab"
-					data-toggle="tab" href="#nav-books" role="tab"
-					aria-controls="books" aria-expanded="false">Trades</a>
+				<a class="nav-item nav-link" id="nav-trades-tab"
+					data-toggle="tab" href="#nav-trades" role="tab"
+					aria-controls="trades" aria-expanded="false">Trades</a>				
+				<a class="nav-item nav-link" id="nav-stats-tab"
+					data-toggle="tab" href="#nav-stats" role="tab"
+					aria-controls="stats" aria-expanded="false">Key Stats</a>
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -243,8 +246,8 @@
 						<hr />
 					</div>
 				</div>
-				<div class="tab-pane fade" id="nav-books" role="tabpanel"
-					aria-labelledby="nav-books-tab" aria-expanded="true">
+				<div class="tab-pane fade" id="nav-trades" role="tabpanel"
+					aria-labelledby="nav-trades-tab" aria-expanded="true">
 					<br>
 					<div *ngFor="let trade of trades">
 						<div class="row">
@@ -305,7 +308,56 @@
 						</div>					
 						<hr />
 					</div>			
+				</div>	
+				<div class="tab-pane fade" id="nav-stats" role="tabpanel"
+					aria-labelledby="nav-stats-tab" aria-expanded="true">
+					<br>			
+					<div class="row">
+							<div class="col-3">
+								<b>Company name: </b>
+							</div>
+							<div>
+								<b>{{stats.companyName}}</b>
+							</div>
+					</div>				
+					<div class="row">
+							<div class="col-3">
+								<b>Market Cap: </b>
+							</div>
+							<div>
+								<b>{{stats.marketcap}}</b>
+							</div>
+					</div>				
+					<div class="row">
+							<div class="col-3">
+								<b>Beta: </b>
+							</div>
+							<div>
+								<b>{{stats.beta}}</b>
+							</div>
+					</div>					
+					<div class="row">
+							<div class="col-3">
+								<b>Week 52 High: </b>
+							</div>
+							<div>
+								<b>{{stats.week52high}}</b>
+							</div>
+					</div>
+						
+					
+					
+					
+					
+					
+					
+					
+					
 				</div>
+				
+				
+				
+				
 			</div>
 		</div>
 	</div>
