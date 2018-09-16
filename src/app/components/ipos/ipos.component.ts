@@ -12,7 +12,7 @@ import {IposService} from '../../services/ipos.service';
 export class IposComponent implements OnInit 
 {
   id: string;
-  ipo: any;
+  upcomingIPOs : any[];
   location: string = 'IPOs';
 
   constructor(private route: ActivatedRoute, private httpService: IposService) {
@@ -36,7 +36,7 @@ export class IposComponent implements OnInit
           alert('Server Error');
         } else {
 
-          this.ipo = response;
+          this.upcomingIPOs = response.rawData;
           //alert(this.ipo);									
         }
       },

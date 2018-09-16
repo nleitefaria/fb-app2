@@ -21,8 +21,19 @@
 				<div class="tab-pane fade active show" id="nav-upcoming"
 					role="tabpanel" aria-labelledby="nav-upcoming-tab"
 					aria-expanded="true">
-					<br>
-					Upcoming
+					<br>									
+					<div *ngFor="let upcomingIPO of upcomingIPOs">
+						<div class="row">
+							<div class="col-3">
+								<b>Symbol: </b>
+							</div>
+							<div class="col">
+								<b>{{upcomingIPO.symbol}}</b>
+							</div>
+						</div>
+						
+						<hr>
+					</div>										
 				</div>			
 				<div class="tab-pane fade" id="nav-today" role="tabpanel"
 					aria-labelledby="nav-today-tab" aria-expanded="false">
