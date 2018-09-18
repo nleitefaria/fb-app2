@@ -8,15 +8,17 @@ import {FinancialsService} from '../../services/financials.service';
 import {LogosService} from '../../services/logos.service';
 import {BooksService} from '../../services/books.service';
 import {StatsService} from '../../services/stats.service';
+import {LargestTradesService} from '../../services/largest-trades.service';
 
 @Component({
   selector: 'app-symbol-details',
   templateUrl: './symbol-details.component.html',
   styleUrls: ['./symbol-details.component.css'],
-  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService, StatsService]
+  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService, StatsService, LargestTradesService]
 })
 
-export class SymbolDetailsComponent implements OnInit {
+export class SymbolDetailsComponent implements OnInit 
+{
   id: string;
   logo: any;
   location: string = 'symbols';
@@ -30,8 +32,9 @@ export class SymbolDetailsComponent implements OnInit {
   trades: any[];
   ipo: any;
   stats: any;
+  largestTrades: any[];
 
-  constructor(private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService) {
+  constructor(private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService, private httpService8: LargestTradesService) {
     this.route.params.subscribe((params) => {
       this.id = params.id;
     });
@@ -41,7 +44,8 @@ export class SymbolDetailsComponent implements OnInit {
     this.init();
   }
 
-  init() {
+  init() 
+  {
     this.getCompany(this.id);
     this.getEarnings(this.id);
     this.getEffectiveSpreads(this.id);
@@ -49,6 +53,7 @@ export class SymbolDetailsComponent implements OnInit {
     this.getLogo(this.id);
     this.getBook(this.id);
     this.getStats(this.id);
+    this.getLargestTrades(this.id);   
   }
 
   getCompany(sym: string) {
@@ -143,7 +148,6 @@ export class SymbolDetailsComponent implements OnInit {
     );
   }
 
-
   getStats(sym: string) {
     this.httpService7.getStats(sym).subscribe(
       response => {
@@ -153,6 +157,27 @@ export class SymbolDetailsComponent implements OnInit {
         else {
           this.stats = response;
           console.log(this.stats);
+        }
+      },
+      error => {
+        alert('Server error');
+      }
+    );
+  }
+  
+  getLargestTrades(sym: string) 
+  {
+    this.httpService8.getLargestTrades(sym).subscribe(
+      response => 
+      {
+        if (response.error) 
+        {
+          alert('Server Error');
+        }
+        else
+        {
+          this.largestTrades = response;
+          alert(this.largestTrades);
         }
       },
       error => {

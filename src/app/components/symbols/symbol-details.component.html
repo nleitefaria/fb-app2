@@ -94,7 +94,10 @@
 					aria-controls="financials" aria-expanded="false">Financials</a>
 				<a class="nav-item nav-link" id="nav-trades-tab"
 					data-toggle="tab" href="#nav-trades" role="tab"
-					aria-controls="trades" aria-expanded="false">Trades</a>				
+					aria-controls="trades" aria-expanded="false">Trades</a>							
+				<a class="nav-item nav-link" id="nav-largest-trades-tab"
+					data-toggle="tab" href="#nav-largest-trades" role="tab"
+					aria-controls="largest-trades" aria-expanded="false">Largest trades</a>											
 				<a class="nav-item nav-link" id="nav-stats-tab"
 					data-toggle="tab" href="#nav-stats" role="tab"
 					aria-controls="stats" aria-expanded="false">Key Stats</a>
@@ -308,7 +311,62 @@
 						</div>					
 						<hr />
 					</div>			
-				</div>	
+				</div>					
+				<div class="tab-pane fade" id="nav-largest-trades" role="tabpanel"
+					aria-labelledby="nav-largest-trades-tab" aria-expanded="true">
+					<br>
+					<div *ngFor="let largestTrade of largestTrades">
+						<div class="row">
+							<div class="col-3">
+								<b>Price: </b>
+							</div>
+							<div class="col">
+								{{largestTrade.price}}
+							</div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>Size: </b>
+							</div>
+							<div class="col">
+								{{largestTrade.size}}
+							</div>
+						</div>																
+						<div class="row">
+							<div class="col-3">
+								<b>Time: </b>
+							</div>
+							<div class="col">
+								{{largestTrade.time}}
+							</div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>Time label: </b>
+							</div>
+							<div class="col">
+								{{largestTrade.timeLabel}}
+							</div>
+						</div>					
+						<div class="row">
+							<div class="col-3">
+								<b>Venue: </b>
+							</div>
+							<div class="col">
+								{{largestTrade.venue}}
+							</div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>Venue name: </b>
+							</div>
+							<div class="col">
+								{{largestTrade.venueName}}
+							</div>
+						</div>
+						<hr>
+					</div>
+				</div>
 				<div class="tab-pane fade" id="nav-stats" role="tabpanel"
 					aria-labelledby="nav-stats-tab" aria-expanded="true">
 					<br>					
