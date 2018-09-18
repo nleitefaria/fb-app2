@@ -9,12 +9,13 @@ import {LogosService} from '../../services/logos.service';
 import {BooksService} from '../../services/books.service';
 import {StatsService} from '../../services/stats.service';
 import {LargestTradesService} from '../../services/largest-trades.service';
+import {PeersService} from '../../services/peers.service';
 
 @Component({
   selector: 'app-symbol-details',
   templateUrl: './symbol-details.component.html',
   styleUrls: ['./symbol-details.component.css'],
-  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService, StatsService, LargestTradesService]
+  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService, StatsService, LargestTradesService, PeersService]
 })
 
 export class SymbolDetailsComponent implements OnInit 
@@ -33,8 +34,9 @@ export class SymbolDetailsComponent implements OnInit
   ipo: any;
   stats: any;
   largestTrades: any[];
+  peers: any[];
 
-  constructor(private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService, private httpService8: LargestTradesService) {
+  constructor(private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService, private httpService8: LargestTradesService, private httpService9: PeersService) {
     this.route.params.subscribe((params) => {
       this.id = params.id;
     });
@@ -53,7 +55,8 @@ export class SymbolDetailsComponent implements OnInit
     this.getLogo(this.id);
     this.getBook(this.id);
     this.getStats(this.id);
-    this.getLargestTrades(this.id);   
+    this.getLargestTrades(this.id);
+    this.getPeers(this.id);  
   }
 
   getCompany(sym: string) {
@@ -156,7 +159,6 @@ export class SymbolDetailsComponent implements OnInit
         }
         else {
           this.stats = response;
-          console.log(this.stats);
         }
       },
       error => {
@@ -177,7 +179,6 @@ export class SymbolDetailsComponent implements OnInit
         else
         {
           this.largestTrades = response;
-          alert(this.largestTrades);
         }
       },
       error => {
@@ -186,7 +187,25 @@ export class SymbolDetailsComponent implements OnInit
     );
   }
 
-
-
+	getPeers(sym: string)
+	{
+		this.httpService9.getAllPeers(sym).subscribe(
+      		response => 
+      		{
+        		if (response.error) 
+        		{
+          			alert('Server Error');
+        		}
+        		else
+        		{
+          			this.peers = response;
+        		}
+      		},
+      		error => 
+      		{
+        		alert('Server error');
+      		}
+    );
+	} 
 
 }

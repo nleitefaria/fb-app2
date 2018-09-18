@@ -101,6 +101,11 @@
 				<a class="nav-item nav-link" id="nav-stats-tab"
 					data-toggle="tab" href="#nav-stats" role="tab"
 					aria-controls="stats" aria-expanded="false">Key Stats</a>
+					
+				<a class="nav-item nav-link" id="nav-peers-tab"
+					data-toggle="tab" href="#nav-peers" role="tab"
+					aria-controls="peers" aria-expanded="false">Peers</a>
+					
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -715,6 +720,17 @@
 							</div>
 					</div>				
 					<br>					
+				</div>								
+				<div class="tab-pane fade" id="nav-peers" role="tabpanel"
+					aria-labelledby="nav-peers-tab" aria-expanded="true">
+					<br>
+					<div *ngFor="let peer of peers">
+						<div class="row">
+							<div class="col">
+								<a href="/symbol-details/{{peer}}">{{peer}}</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
