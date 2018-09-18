@@ -100,12 +100,13 @@
 					aria-controls="largest-trades" aria-expanded="false">Largest trades</a>											
 				<a class="nav-item nav-link" id="nav-stats-tab"
 					data-toggle="tab" href="#nav-stats" role="tab"
-					aria-controls="stats" aria-expanded="false">Key Stats</a>
-					
+					aria-controls="stats" aria-expanded="false">Key Stats</a>					
 				<a class="nav-item nav-link" id="nav-peers-tab"
 					data-toggle="tab" href="#nav-peers" role="tab"
-					aria-controls="peers" aria-expanded="false">Peers</a>
-					
+					aria-controls="peers" aria-expanded="false">Peers</a>				
+				<a class="nav-item nav-link" id="nav-splits-tab"
+					data-toggle="tab" href="#nav-splits" role="tab"
+					aria-controls="splits" aria-expanded="false">Splits</a>					
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -731,6 +732,30 @@
 							</div>
 						</div>
 					</div>
+				</div>
+				<div class="tab-pane fade" id="nav-splits" role="tabpanel"
+					aria-labelledby="nav-splits-tab" aria-expanded="true">
+					<br>				
+					<table class="table table-hover" *ngFor="let split of splits">								
+						<tr>
+    						<th>Ex. date</th>
+    						<th>Declared date</th>
+    						<th>Record date</th>
+    						<th>Payment date</th>
+    						<th>Ratio</th>
+    						<th>To factor</th>
+    						<th>For factor</th>
+  						</tr>						
+						<tr>
+    						<td>{{split.exDate}}</td>
+    						<td>{{split.declaredDate}}</td>
+    						<td>{{split.recordDate}}</td>
+    						<td>{{split.paymentDate}}</td>
+    						<td>{{split.ratio}}</td>
+    						<td>{{split.toFactor}}</td>
+    						<td>{{split.forFactor}}</td>
+  						</tr>
+					</table>
 				</div>
 			</div>
 		</div>

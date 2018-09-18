@@ -10,12 +10,13 @@ import {BooksService} from '../../services/books.service';
 import {StatsService} from '../../services/stats.service';
 import {LargestTradesService} from '../../services/largest-trades.service';
 import {PeersService} from '../../services/peers.service';
+import {SplitsService} from '../../services/splits.service';
 
 @Component({
   selector: 'app-symbol-details',
   templateUrl: './symbol-details.component.html',
   styleUrls: ['./symbol-details.component.css'],
-  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService, StatsService, LargestTradesService, PeersService]
+  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService, StatsService, LargestTradesService, PeersService, SplitsService]
 })
 
 export class SymbolDetailsComponent implements OnInit 
@@ -35,8 +36,9 @@ export class SymbolDetailsComponent implements OnInit
   stats: any;
   largestTrades: any[];
   peers: any[];
+  splits: any[];
 
-  constructor(private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService, private httpService8: LargestTradesService, private httpService9: PeersService) {
+  constructor(private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService, private httpService8: LargestTradesService, private httpService9: PeersService, private httpService10: SplitsService) {
     this.route.params.subscribe((params) => {
       this.id = params.id;
     });
@@ -57,6 +59,7 @@ export class SymbolDetailsComponent implements OnInit
     this.getStats(this.id);
     this.getLargestTrades(this.id);
     this.getPeers(this.id);  
+    this.getSplits(this.id, '5y');
   }
 
   getCompany(sym: string) {
@@ -199,6 +202,28 @@ export class SymbolDetailsComponent implements OnInit
         		else
         		{
           			this.peers = response;
+        		}
+      		},
+      		error => 
+      		{
+        		alert('Server error');
+      		}
+    );
+	} 
+	
+	
+	getSplits(sym: string, range: string)
+	{
+		this.httpService10.getAllSplits(sym, range).subscribe(
+      		response => 
+      		{
+        		if (response.error) 
+        		{
+          			alert('Server Error');
+        		}
+        		else
+        		{
+          			this.splits = response;
         		}
       		},
       		error => 
