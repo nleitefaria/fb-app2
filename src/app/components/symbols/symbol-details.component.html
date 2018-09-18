@@ -91,22 +91,21 @@
 					aria-controls="profile" aria-expanded="false">Effective spread</a>
 				<a class="nav-item nav-link" id="nav-financials-tab"
 					data-toggle="tab" href="#nav-financials" role="tab"
-					aria-controls="financials" aria-expanded="false">Financials</a>
-				<a class="nav-item nav-link" id="nav-trades-tab"
-					data-toggle="tab" href="#nav-trades" role="tab"
-					aria-controls="trades" aria-expanded="false">Trades</a>							
-				<a class="nav-item nav-link" id="nav-largest-trades-tab"
-					data-toggle="tab" href="#nav-largest-trades" role="tab"
-					aria-controls="largest-trades" aria-expanded="false">Largest trades</a>											
-				<a class="nav-item nav-link" id="nav-stats-tab"
+					aria-controls="financials" aria-expanded="false">Financials</a> <a
+					class="nav-item nav-link" id="nav-trades-tab" data-toggle="tab"
+					href="#nav-trades" role="tab" aria-controls="trades"
+					aria-expanded="false">Trades</a> <a class="nav-item nav-link"
+					id="nav-largest-trades-tab" data-toggle="tab"
+					href="#nav-largest-trades" role="tab"
+					aria-controls="largest-trades" aria-expanded="false">Largest
+					trades</a> <a class="nav-item nav-link" id="nav-stats-tab"
 					data-toggle="tab" href="#nav-stats" role="tab"
-					aria-controls="stats" aria-expanded="false">Key Stats</a>					
-				<a class="nav-item nav-link" id="nav-peers-tab"
-					data-toggle="tab" href="#nav-peers" role="tab"
-					aria-controls="peers" aria-expanded="false">Peers</a>				
-				<a class="nav-item nav-link" id="nav-splits-tab"
-					data-toggle="tab" href="#nav-splits" role="tab"
-					aria-controls="splits" aria-expanded="false">Splits</a>					
+					aria-controls="stats" aria-expanded="false">Key Stats</a> <a
+					class="nav-item nav-link" id="nav-peers-tab" data-toggle="tab"
+					href="#nav-peers" role="tab" aria-controls="peers"
+					aria-expanded="false">Peers</a> <a class="nav-item nav-link"
+					id="nav-splits-tab" data-toggle="tab" href="#nav-splits" role="tab"
+					aria-controls="splits" aria-expanded="false">Splits</a>
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -314,10 +313,10 @@
 								<b>Timestamp: </b>
 							</div>
 							<div class="col">{{trade.timestamp}}</div>
-						</div>					
+						</div>
 						<hr />
-					</div>			
-				</div>					
+					</div>
+				</div>
 				<div class="tab-pane fade" id="nav-largest-trades" role="tabpanel"
 					aria-labelledby="nav-largest-trades-tab" aria-expanded="true">
 					<br>
@@ -326,402 +325,304 @@
 							<div class="col-3">
 								<b>Price: </b>
 							</div>
-							<div class="col">
-								{{largestTrade.price}}
-							</div>
-						</div>						
+							<div class="col">{{largestTrade.price}}</div>
+						</div>
 						<div class="row">
 							<div class="col-3">
 								<b>Size: </b>
 							</div>
-							<div class="col">
-								{{largestTrade.size}}
-							</div>
-						</div>																
+							<div class="col">{{largestTrade.size}}</div>
+						</div>
 						<div class="row">
 							<div class="col-3">
 								<b>Time: </b>
 							</div>
-							<div class="col">
-								{{largestTrade.time}}
-							</div>
-						</div>						
+							<div class="col">{{largestTrade.time}}</div>
+						</div>
 						<div class="row">
 							<div class="col-3">
 								<b>Time label: </b>
 							</div>
-							<div class="col">
-								{{largestTrade.timeLabel}}
-							</div>
-						</div>					
+							<div class="col">{{largestTrade.timeLabel}}</div>
+						</div>
 						<div class="row">
 							<div class="col-3">
 								<b>Venue: </b>
 							</div>
-							<div class="col">
-								{{largestTrade.venue}}
-							</div>
-						</div>						
+							<div class="col">{{largestTrade.venue}}</div>
+						</div>
 						<div class="row">
 							<div class="col-3">
 								<b>Venue name: </b>
 							</div>
-							<div class="col">
-								{{largestTrade.venueName}}
-							</div>
+							<div class="col">{{largestTrade.venueName}}</div>
 						</div>
 						<hr>
 					</div>
 				</div>
 				<div class="tab-pane fade" id="nav-stats" role="tabpanel"
 					aria-labelledby="nav-stats-tab" aria-expanded="true">
-					<br>					
+					<br>
 					<div class="row">
-							<div class="col-3">
-								<b>Market Cap: </b>
-							</div>
-							<div>
-								{{stats.marketcap}}
-							</div>
-					</div>				
-					<div class="row">
-							<div class="col-3">
-								<b>Beta: </b>
-							</div>
-							<div>
-								{{stats.beta}}
-							</div>
-					</div>					
-					<div class="row">
-							<div class="col-3">
-								<b>Week 52 High:</b>
-							</div>
-							<div>
-								{{stats.week52high}}
-							</div>
-					</div>																
-					<div class="row">
-							<div class="col-3">
-								<b>Week 52 Low: </b>
-							</div>
-							<div>
-								{{stats.week52low}}
-							</div>
-					</div>				
-					<div class="row">
-							<div class="col-3">
-								<b>Week 52 Change: </b>
-							</div>
-							<div>
-								{{stats.week52change}}
-							</div>
-					</div>				
-					<div class="row">
-							<div class="col-3">
-								<b>Short Interest: </b>
-							</div>
-							<div>
-								{{stats.shortInterest}}
-							</div>
-					</div>					
-					<div class="row">
-							<div class="col-3">
-								<b>Short Date: </b>
-							</div>
-							<div>
-								{{stats.shortDate}}
-							</div>
-					</div>					
-					<div class="row">
-							<div class="col-3">
-								<b>Dividend Rate: </b>
-							</div>
-							<div>
-								{{stats.dividendRate}}
-							</div>
-					</div>					
-					<div class="row">
-							<div class="col-3">
-								<b>Dividend Yield: </b>
-							</div>
-							<div>
-								{{stats.dividendYield}}
-							</div>
-					</div>				
-					<div class="row">
-							<div class="col-3">
-								<b>Ex Dividend Date: </b>
-							</div>
-							<div>
-								{{stats.exDividendDate}}
-							</div>
+						<div class="col-3">
+							<b>Market Cap: </b>
+						</div>
+						<div>{{stats.marketcap}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Latest EPS: </b>
-							</div>
-							<div>
-								{{stats.latestEPS}}
-							</div>
+						<div class="col-3">
+							<b>Beta: </b>
+						</div>
+						<div>{{stats.beta}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Latest EPS Date: </b>
-							</div>
-							<div>
-								{{stats.latestEPSDate}}
-							</div>
+						<div class="col-3">
+							<b>Week 52 High:</b>
+						</div>
+						<div>{{stats.week52high}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Shares Outstanding: </b>
-							</div>
-							<div>
-								{{stats.sharesOutstanding}}
-							</div>
+						<div class="col-3">
+							<b>Week 52 Low: </b>
+						</div>
+						<div>{{stats.week52low}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Float: </b>
-							</div>
-							<div>
-								{{stats.float}}
-							</div>
+						<div class="col-3">
+							<b>Week 52 Change: </b>
+						</div>
+						<div>{{stats.week52change}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Return On Equity: </b>
-							</div>
-							<div>
-								{{stats.returnOnEquity}}
-							</div>
-					</div>				
-					<div class="row">
-							<div class="col-3">
-								<b>Consensus EPS: </b>
-							</div>
-							<div>
-								{{stats.consensusEPS}}
-							</div>
+						<div class="col-3">
+							<b>Short Interest: </b>
+						</div>
+						<div>{{stats.shortInterest}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Number Of Estimates: </b>
-							</div>
-							<div>
-								{{stats.numberOfEstimates}}
-							</div>
+						<div class="col-3">
+							<b>Short Date: </b>
+						</div>
+						<div>{{stats.shortDate}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>EBITDA: </b>
-							</div>
-							<div>
-								{{stats.EBITDA}}
-							</div>
+						<div class="col-3">
+							<b>Dividend Rate: </b>
+						</div>
+						<div>{{stats.dividendRate}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Revenue: </b>
-							</div>
-							<div>
-								{{stats.revenue}}
-							</div>
+						<div class="col-3">
+							<b>Dividend Yield: </b>
+						</div>
+						<div>{{stats.dividendYield}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Gross Profit: </b>
-							</div>
-							<div>
-								{{stats.grossProfit}}
-							</div>
+						<div class="col-3">
+							<b>Ex Dividend Date: </b>
+						</div>
+						<div>{{stats.exDividendDate}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Cash: </b>
-							</div>
-							<div>
-								{{stats.cash}}
-							</div>
+						<div class="col-3">
+							<b>Latest EPS: </b>
+						</div>
+						<div>{{stats.latestEPS}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Debt: </b>
-							</div>
-							<div>
-								{{stats.debt}}
-							</div>
+						<div class="col-3">
+							<b>Latest EPS Date: </b>
+						</div>
+						<div>{{stats.latestEPSDate}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>TTM EPS: </b>
-							</div>
-							<div>
-								{{stats.ttmEPS}}
-							</div>
+						<div class="col-3">
+							<b>Shares Outstanding: </b>
+						</div>
+						<div>{{stats.sharesOutstanding}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Revenue Per Share: </b>
-							</div>
-							<div>
-								{{stats.revenuePerShare}}
-							</div>
+						<div class="col-3">
+							<b>Float: </b>
+						</div>
+						<div>{{stats.float}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Revenue Per Employee: </b>
-							</div>
-							<div>
-								{{stats.revenuePerEmployee}}
-							</div>
+						<div class="col-3">
+							<b>Return On Equity: </b>
+						</div>
+						<div>{{stats.returnOnEquity}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>PE Ratio High: </b>
-							</div>
-							<div>
-								{{stats.peRatioHigh}}
-							</div>
+						<div class="col-3">
+							<b>Consensus EPS: </b>
+						</div>
+						<div>{{stats.consensusEPS}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>PE Ratio Low: </b>
-							</div>
-							<div>
-								{{stats.peRatioLow}}
-							</div>
+						<div class="col-3">
+							<b>Number Of Estimates: </b>
+						</div>
+						<div>{{stats.numberOfEstimates}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Profit Margin: </b>
-							</div>
-							<div>
-								{{stats.profitMargin}}
-							</div>
+						<div class="col-3">
+							<b>EBITDA: </b>
+						</div>
+						<div>{{stats.EBITDA}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Price To Sales: </b>
-							</div>
-							<div>
-								{{stats.priceToSales}}
-							</div>
+						<div class="col-3">
+							<b>Revenue: </b>
+						</div>
+						<div>{{stats.revenue}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Price To Book: </b>
-							</div>
-							<div>
-								{{stats.priceToBook}}
-							</div>
+						<div class="col-3">
+							<b>Gross Profit: </b>
+						</div>
+						<div>{{stats.grossProfit}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Day 200 Moving Avg: </b>
-							</div>
-							<div>
-								{{stats.day200MovingAvg}}
-							</div>
+						<div class="col-3">
+							<b>Cash: </b>
+						</div>
+						<div>{{stats.cash}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Day 50 Moving Avg: </b>
-							</div>
-							<div>
-								{{stats.day50MovingAvg}}
-							</div>
-					</div>								
-					<div class="row">
-							<div class="col-3">
-								<b>Institution Percent: </b>
-							</div>
-							<div>
-								{{stats.institutionPercent}}
-							</div>
+						<div class="col-3">
+							<b>Debt: </b>
+						</div>
+						<div>{{stats.debt}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Insider Percent: </b>
-							</div>
-							<div>
-								{{stats.insiderPercent}}
-							</div>
+						<div class="col-3">
+							<b>TTM EPS: </b>
+						</div>
+						<div>{{stats.ttmEPS}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Short Ratio: </b>
-							</div>
-							<div>
-								{{stats.shortRatio}}
-							</div>
+						<div class="col-3">
+							<b>Revenue Per Share: </b>
+						</div>
+						<div>{{stats.revenuePerShare}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Year 5 Change Percent: </b>
-							</div>
-							<div>
-								{{stats.year5ChangePercent}}
-							</div>
-					</div>					
-					<div class="row">
-							<div class="col-3">
-								<b>Year 2 Change Percent: </b>
-							</div>
-							<div>
-								{{stats.year2ChangePercent}}
-							</div>
+						<div class="col-3">
+							<b>Revenue Per Employee: </b>
+						</div>
+						<div>{{stats.revenuePerEmployee}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Year 1 Change Percent: </b>
-							</div>
-							<div>
-								{{stats.year1ChangePercent}}
-							</div>
+						<div class="col-3">
+							<b>PE Ratio High: </b>
+						</div>
+						<div>{{stats.peRatioHigh}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>YTD Change Percent: </b>
-							</div>
-							<div>
-								{{stats.ytdChangePercentt}}
-							</div>
+						<div class="col-3">
+							<b>PE Ratio Low: </b>
+						</div>
+						<div>{{stats.peRatioLow}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Month 6 Change Percent: </b>
-							</div>
-							<div>
-								{{stats.month6ChangePercent}}
-							</div>
+						<div class="col-3">
+							<b>Profit Margin: </b>
+						</div>
+						<div>{{stats.profitMargin}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Month 3 Change Percent: </b>
-							</div>
-							<div>
-								{{stats.month3ChangePercent}}
-							</div>
+						<div class="col-3">
+							<b>Price To Sales: </b>
+						</div>
+						<div>{{stats.priceToSales}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Month 1 Change Percent: </b>
-							</div>
-							<div>
-								{{stats.month1ChangePercent}}
-							</div>
+						<div class="col-3">
+							<b>Price To Book: </b>
+						</div>
+						<div>{{stats.priceToBook}}</div>
 					</div>
 					<div class="row">
-							<div class="col-3">
-								<b>Day 5 Change Percent: </b>
-							</div>
-							<div>
-								{{stats.day5ChangePercent}}
-							</div>
-					</div>				
-					<br>					
-				</div>								
+						<div class="col-3">
+							<b>Day 200 Moving Avg: </b>
+						</div>
+						<div>{{stats.day200MovingAvg}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Day 50 Moving Avg: </b>
+						</div>
+						<div>{{stats.day50MovingAvg}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Institution Percent: </b>
+						</div>
+						<div>{{stats.institutionPercent}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Insider Percent: </b>
+						</div>
+						<div>{{stats.insiderPercent}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Short Ratio: </b>
+						</div>
+						<div>{{stats.shortRatio}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Year 5 Change Percent: </b>
+						</div>
+						<div>{{stats.year5ChangePercent}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Year 2 Change Percent: </b>
+						</div>
+						<div>{{stats.year2ChangePercent}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Year 1 Change Percent: </b>
+						</div>
+						<div>{{stats.year1ChangePercent}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>YTD Change Percent: </b>
+						</div>
+						<div>{{stats.ytdChangePercentt}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Month 6 Change Percent: </b>
+						</div>
+						<div>{{stats.month6ChangePercent}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Month 3 Change Percent: </b>
+						</div>
+						<div>{{stats.month3ChangePercent}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Month 1 Change Percent: </b>
+						</div>
+						<div>{{stats.month1ChangePercent}}</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Day 5 Change Percent: </b>
+						</div>
+						<div>{{stats.day5ChangePercent}}</div>
+					</div>
+					<br>
+				</div>
 				<div class="tab-pane fade" id="nav-peers" role="tabpanel"
 					aria-labelledby="nav-peers-tab" aria-expanded="true">
 					<br>
@@ -735,26 +636,37 @@
 				</div>
 				<div class="tab-pane fade" id="nav-splits" role="tabpanel"
 					aria-labelledby="nav-splits-tab" aria-expanded="true">
-					<br>				
-					<table class="table table-hover" *ngFor="let split of splits">								
+					<br>
+
+					<div>
+						<select (change)="onSelectSplitFilter($event.target.value)"
+							[(ngModel)]="selectedCountry.id">
+							<option *ngFor="let country of countries" value={{country.id}}>
+								{{country.name}}</option>
+						</select> <br /> Selected Country ID: {{selectedCountry.id}} & Name:
+						{{selectedCountry.name}}
+					</div>
+
+
+					<table class="table table-hover" *ngFor="let split of splits">
 						<tr>
-    						<th>Ex. date</th>
-    						<th>Declared date</th>
-    						<th>Record date</th>
-    						<th>Payment date</th>
-    						<th>Ratio</th>
-    						<th>To factor</th>
-    						<th>For factor</th>
-  						</tr>						
+							<th>Ex. date</th>
+							<th>Declared date</th>
+							<th>Record date</th>
+							<th>Payment date</th>
+							<th>Ratio</th>
+							<th>To factor</th>
+							<th>For factor</th>
+						</tr>
 						<tr>
-    						<td>{{split.exDate}}</td>
-    						<td>{{split.declaredDate}}</td>
-    						<td>{{split.recordDate}}</td>
-    						<td>{{split.paymentDate}}</td>
-    						<td>{{split.ratio}}</td>
-    						<td>{{split.toFactor}}</td>
-    						<td>{{split.forFactor}}</td>
-  						</tr>
+							<td>{{split.exDate}}</td>
+							<td>{{split.declaredDate}}</td>
+							<td>{{split.recordDate}}</td>
+							<td>{{split.paymentDate}}</td>
+							<td>{{split.ratio}}</td>
+							<td>{{split.toFactor}}</td>
+							<td>{{split.forFactor}}</td>
+						</tr>
 					</table>
 				</div>
 			</div>
