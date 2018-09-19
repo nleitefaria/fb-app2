@@ -260,7 +260,6 @@ export class SymbolDetailsComponent implements OnInit
             else
             {
                 this.quote = response;
-                alert(this.quote);
             }
           },
           error => 
