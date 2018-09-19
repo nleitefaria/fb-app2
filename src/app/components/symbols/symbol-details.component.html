@@ -637,17 +637,12 @@
 				<div class="tab-pane fade" id="nav-splits" role="tabpanel"
 					aria-labelledby="nav-splits-tab" aria-expanded="true">
 					<br>
-
-					<div>
-						<select (change)="onSelectSplitFilter($event.target.value)"
-							[(ngModel)]="selectedCountry.id">
-							<option *ngFor="let country of countries" value={{country.id}}>
-								{{country.name}}</option>
-						</select> <br /> Selected Country ID: {{selectedCountry.id}} & Name:
-						{{selectedCountry.name}}
+					<div>					
+						<select (change)="onSelectSplitsFilter($event.target.value)">
+      						<option *ngFor="let splitsFilter of splitsFilterData" [value]="splitsFilter.id">{{splitsFilter.name}}</option>
+    					</select>   																
 					</div>
-
-
+					<br>
 					<table class="table table-hover" *ngFor="let split of splits">
 						<tr>
 							<th>Ex. date</th>

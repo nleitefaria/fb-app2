@@ -12,7 +12,7 @@ import {LargestTradesService} from '../../services/largest-trades.service';
 import {PeersService} from '../../services/peers.service';
 import {SplitsService} from '../../services/splits.service';
 
-import {Country} from '../../model/country';
+import {SplitsFilterData} from '../../model/splits-filter-data';
 
 @Component({
   selector: 'app-symbol-details',
@@ -39,14 +39,18 @@ export class SymbolDetailsComponent implements OnInit
   largestTrades: any[];
   peers: any[];
   splits: any[];
-  selectedCountry:Country = new Country(1, 'USA');
-  countries = [
-     new Country(0, 'Choose'),
-     new Country(1, 'USA'),
-     new Country(2, 'India'),
-     new Country(3, 'Australia'),
-     new Country(4, 'Brazil')
-  ];
+  splitsFilterData: SplitsFilterData[] = [
+      { "id": 1, "name": "5y" },
+      { "id": 2, "name": "2y" },
+      { "id": 3, "name": "1y" },
+      { "id": 4, "name": "ytd" },
+      { "id": 5, "name": "6m" },
+      { "id": 6, "name": "3m" },
+      { "id": 7, "name": "1m" }
+    ];
+    
+    selectedSplitsFilterData: SplitsFilterData = this.splitsFilterData[0];
+    
 
   constructor(private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService, private httpService8: LargestTradesService, private httpService9: PeersService, private httpService10: SplitsService) {
     this.route.params.subscribe((params) => {
@@ -221,7 +225,6 @@ export class SymbolDetailsComponent implements OnInit
     );
 	} 
 	
-	
 	getSplits(sym: string, range: string)
 	{
 		this.httpService10.getAllSplits(sym, range).subscribe(
@@ -242,20 +245,17 @@ export class SymbolDetailsComponent implements OnInit
       		}
     );
 	} 
-  
-  
-  onSelectSplitFilter(countryId) 
-  { 
-    this.selectedCountry = null;
-    for (var i = 0; i < this.countries.length; i++)
-    {
-      if (this.countries[i].id == countryId) 
-      {
-        this.selectedCountry = this.countries[i];
-      }
+	
+	 onSelectSplitsFilter(splitsFilterDataId) 
+	 { 
+        this.selectedSplitsFilterData = null;
+        for (var i = 0; i < this.splitsFilterData.length; i++)
+        {
+          if (this.splitsFilterData[i].id == splitsFilterDataId) {
+            this.selectedSplitsFilterData = this.splitsFilterData[i];
+          }
+        }
+        
+        this.getSplits(this.id, this.selectedSplitsFilterData.name);
     }
- 
-  }
-
-
 }
