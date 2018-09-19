@@ -82,30 +82,45 @@
 	<br>
 	<div class="container">
 		<div class="bd-example bd-example-tabs">
-			<nav class="nav nav-tabs" id="nav-tab" role="tablist">
+			<nav class="nav nav-tabs" id="nav-tab" role="tablist">				
+				
 				<a class="nav-item nav-link active" id="nav-earnings-tab"
 					data-toggle="tab" href="#nav-earnings" role="tab"
-					aria-controls="earnings" aria-expanded="true">Earnings</a> <a
-					class="nav-item nav-link" id="nav-effective-spread-tab"
+					aria-controls="earnings" aria-expanded="true">Earnings</a>
+									
+				<a class="nav-item nav-link" id="nav-quote-tab" data-toggle="tab"
+					href="#nav-quote" role="tab" aria-controls="quote"
+ 					aria-expanded="false">Quote</a> 
+ 					 				
+				<a class="nav-item nav-link" id="nav-effective-spread-tab"
 					data-toggle="tab" href="#nav-effective-spread" role="tab"
 					aria-controls="profile" aria-expanded="false">Effective spread</a>
+					
 				<a class="nav-item nav-link" id="nav-financials-tab"
 					data-toggle="tab" href="#nav-financials" role="tab"
-					aria-controls="financials" aria-expanded="false">Financials</a> <a
-					class="nav-item nav-link" id="nav-trades-tab" data-toggle="tab"
+					aria-controls="financials" aria-expanded="false">Financials</a> 
+					
+				<a class="nav-item nav-link" id="nav-trades-tab" data-toggle="tab"
 					href="#nav-trades" role="tab" aria-controls="trades"
-					aria-expanded="false">Trades</a> <a class="nav-item nav-link"
+					aria-expanded="false">Trades</a> 
+					
+				<a class="nav-item nav-link"
 					id="nav-largest-trades-tab" data-toggle="tab"
 					href="#nav-largest-trades" role="tab"
-					aria-controls="largest-trades" aria-expanded="false">Largest
-					trades</a> <a class="nav-item nav-link" id="nav-stats-tab"
+					aria-controls="largest-trades" aria-expanded="false">Largest trades</a> 
+					
+				<a class="nav-item nav-link" id="nav-stats-tab"
 					data-toggle="tab" href="#nav-stats" role="tab"
-					aria-controls="stats" aria-expanded="false">Key Stats</a> <a
-					class="nav-item nav-link" id="nav-peers-tab" data-toggle="tab"
+					aria-controls="stats" aria-expanded="false">Key Stats</a> 
+				
+				<a class="nav-item nav-link" id="nav-peers-tab" data-toggle="tab"
 					href="#nav-peers" role="tab" aria-controls="peers"
-					aria-expanded="false">Peers</a> <a class="nav-item nav-link"
+					aria-expanded="false">Peers</a> 
+					
+				<a  class="nav-item nav-link"
 					id="nav-splits-tab" data-toggle="tab" href="#nav-splits" role="tab"
 					aria-controls="splits" aria-expanded="false">Splits</a>
+
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -138,6 +153,91 @@
 							</tr>
 						</tbody>
 					</table>
+				</div>
+				<div class="tab-pane fade" id="nav-quote" role="tabpanel"
+					aria-labelledby="nav-quote-tab" aria-expanded="false">
+					<br>
+					
+					<div class="row">
+						<div class="col-3">
+							<b>Symbol: </b>
+						</div>
+						<div class="col">
+							{{quote.symbol}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Company name: </b>
+						</div>
+						<div class="col">
+							{{quote.companyName}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Primary Exchange: </b>
+						</div>
+						<div class="col">
+							{{quote.primaryExchange}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<b>Sector: </b>
+						</div>
+						<div class="col">
+							{{quote.sector}}
+						</div>
+					</div>					
+					<div class="row">
+						<div class="col-3">
+							<b>Calculation Price: </b>
+						</div>
+						<div class="col">
+							{{quote.calculationPrice}}
+						</div>
+					</div>					
+					<div class="row">
+						<div class="col-3">
+							<b>Open: </b>
+						</div>
+						<div class="col">
+							{{quote.open}}
+						</div>
+					</div>				
+					<div class="row">
+						<div class="col-3">
+							<b>Open Time: </b>
+						</div>
+						<div class="col">
+							{{quote.openTime}}
+						</div>
+					</div>				
+					<div class="row">
+						<div class="col-3">
+							<b>Close: </b>
+						</div>
+						<div class="col">
+							{{quote.close}}
+						</div>
+					</div>				
+					<div class="row">
+						<div class="col-3">
+							<b>Close time: </b>
+						</div>
+						<div class="col">
+							{{quote.closeTime}}
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-3">
+							<b>TODO </b>
+						</div>
+						<div class="col">
+							TODO
+						</div>
+					</div>				
 				</div>
 				<div class="tab-pane fade" id="nav-effective-spread" role="tabpanel"
 					aria-labelledby="nav-effective-spread-tab" aria-expanded="false">
@@ -637,10 +737,11 @@
 				<div class="tab-pane fade" id="nav-splits" role="tabpanel"
 					aria-labelledby="nav-splits-tab" aria-expanded="true">
 					<br>
-					<div>					
+					<div>
 						<select (change)="onSelectSplitsFilter($event.target.value)">
-      						<option *ngFor="let splitsFilter of splitsFilterData" [value]="splitsFilter.id">{{splitsFilter.name}}</option>
-    					</select>   																
+							<option *ngFor="let splitsFilter of splitsFilterData"
+								[value]="splitsFilter.id">{{splitsFilter.name}}</option>
+						</select>
 					</div>
 					<br>
 					<table class="table table-hover" *ngFor="let split of splits">
@@ -664,6 +765,12 @@
 						</tr>
 					</table>
 				</div>
+				
+				
+				
+				
+				
+				
 			</div>
 		</div>
 	</div>
