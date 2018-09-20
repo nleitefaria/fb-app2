@@ -1,6 +1,7 @@
 import { AppPage } from './app.po';
 
-describe('fb-app2 App', () => {
+describe('fb-app2 App', () => 
+{
   let page: AppPage;
 
   beforeEach(() => {
@@ -9,6 +10,6 @@ describe('fb-app2 App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Please browse the following subjects to get more info:');
   });
 });
