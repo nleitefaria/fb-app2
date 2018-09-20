@@ -22,8 +22,7 @@ import {SplitsFilterData} from '../../model/splits-filter-data';
   providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService, StatsService, LargestTradesService, PeersService, SplitsService, QuoteService]
 })
 
-export class SymbolDetailsComponent implements OnInit 
-{
+export class SymbolDetailsComponent implements OnInit {
   id: string;
   logo: any;
   location: string = 'symbols';
@@ -41,17 +40,17 @@ export class SymbolDetailsComponent implements OnInit
   peers: any[];
   splits: any[];
   splitsFilterData: SplitsFilterData[] = [
-      { "id": 1, "name": "5y" },
-      { "id": 2, "name": "2y" },
-      { "id": 3, "name": "1y" },
-      { "id": 4, "name": "ytd" },
-      { "id": 5, "name": "6m" },
-      { "id": 6, "name": "3m" },
-      { "id": 7, "name": "1m" }
-    ];
-    
-    selectedSplitsFilterData: SplitsFilterData = this.splitsFilterData[0];
-    quote: any;
+    {"id": 1, "name": "5y"},
+    {"id": 2, "name": "2y"},
+    {"id": 3, "name": "1y"},
+    {"id": 4, "name": "ytd"},
+    {"id": 5, "name": "6m"},
+    {"id": 6, "name": "3m"},
+    {"id": 7, "name": "1m"}
+  ];
+
+  selectedSplitsFilterData: SplitsFilterData = this.splitsFilterData[0];
+  quote: any;
 
   constructor(private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService, private httpService8: LargestTradesService, private httpService9: PeersService, private httpService10: SplitsService, private httpService11: QuoteService) {
     this.route.params.subscribe((params) => {
@@ -63,8 +62,7 @@ export class SymbolDetailsComponent implements OnInit
     this.init();
   }
 
-  init() 
-  {
+  init() {
     this.getCompany(this.id);
     this.getEarnings(this.id);
     this.getEffectiveSpreads(this.id);
@@ -73,9 +71,9 @@ export class SymbolDetailsComponent implements OnInit
     this.getBook(this.id);
     this.getStats(this.id);
     this.getLargestTrades(this.id);
-    this.getPeers(this.id);  
+    this.getPeers(this.id);
     this.getSplits(this.id, '5y');
-    this.getQuotes(this.id);  
+    this.getQuotes(this.id);
   }
 
   getCompany(sym: string) {
@@ -159,7 +157,6 @@ export class SymbolDetailsComponent implements OnInit
         if (response.error) {
           alert('Server Error');
         } else {
-
           this.book = response;
           this.trades = this.book.trades;
         }
@@ -185,19 +182,16 @@ export class SymbolDetailsComponent implements OnInit
       }
     );
   }
-  
-  getLargestTrades(sym: string) 
-  {
+
+  getLargestTrades(sym: string) {
     this.httpService8.getLargestTrades(sym).subscribe(
-      response => 
-      {
-        if (response.error) 
-        {
+      response => {
+        if (response.error) {
           alert('Server Error');
         }
-        else
-        {
+        else {
           this.largestTrades = response;
+          alert("ICI: " + this.largestTrades);
         }
       },
       error => {
@@ -206,79 +200,62 @@ export class SymbolDetailsComponent implements OnInit
     );
   }
 
-	getPeers(sym: string)
-	{
-		this.httpService9.getAllPeers(sym).subscribe(
-      		response => 
-      		{
-        		if (response.error) 
-        		{
-          			alert('Server Error');
-        		}
-        		else
-        		{
-          			this.peers = response;
-        		}
-      		},
-      		error => 
-      		{
-        		alert('Server error');
-      		}
-    );
-	} 
-	
-	getSplits(sym: string, range: string)
-	{
-		this.httpService10.getAllSplits(sym, range).subscribe(
-      		response => 
-      		{
-        		if (response.error) 
-        		{
-          			alert('Server Error');
-        		}
-        		else
-        		{
-          			this.splits = response;
-        		}
-      		},
-      		error => 
-      		{
-        		alert('Server error');
-      		}
-    );
-	} 
-  
-  getQuotes(sym: string)
-  {
-    this.httpService11.getQuote(sym).subscribe(
-          response => 
-          {
-            if (response.error) 
-            {
-                alert('Server Error');
-            }
-            else
-            {
-                this.quote = response;
-            }
-          },
-          error => 
-          {
-            alert('Server error');
-          }
-    );
-  } 
-	
-	 onSelectSplitsFilter(splitsFilterDataId) 
-	 { 
-        this.selectedSplitsFilterData = null;
-        for (var i = 0; i < this.splitsFilterData.length; i++)
-        {
-          if (this.splitsFilterData[i].id == splitsFilterDataId) {
-            this.selectedSplitsFilterData = this.splitsFilterData[i];
-          }
+  getPeers(sym: string) {
+    this.httpService9.getAllPeers(sym).subscribe(
+      response => {
+        if (response.error) {
+          alert('Server Error');
         }
-        
-        this.getSplits(this.id, this.selectedSplitsFilterData.name);
+        else {
+          this.peers = response;
+        }
+      },
+      error => {
+        alert('Server error');
+      }
+    );
+  }
+
+  getSplits(sym: string, range: string) {
+    this.httpService10.getAllSplits(sym, range).subscribe(
+      response => {
+        if (response.error) {
+          alert('Server Error');
+        }
+        else {
+          this.splits = response;
+        }
+      },
+      error => {
+        alert('Server error');
+      }
+    );
+  }
+
+  getQuotes(sym: string) {
+    this.httpService11.getQuote(sym).subscribe(
+      response => {
+        if (response.error) {
+          alert('Server Error');
+        }
+        else {
+          this.quote = response;
+        }
+      },
+      error => {
+        alert('Server error');
+      }
+    );
+  }
+
+  onSelectSplitsFilter(splitsFilterDataId) {
+    this.selectedSplitsFilterData = null;
+    for (var i = 0; i < this.splitsFilterData.length; i++) {
+      if (this.splitsFilterData[i].id == splitsFilterDataId) {
+        this.selectedSplitsFilterData = this.splitsFilterData[i];
+      }
     }
+
+    this.getSplits(this.id, this.selectedSplitsFilterData.name);
+  }
 }

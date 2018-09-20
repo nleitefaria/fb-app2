@@ -584,7 +584,11 @@
 				</div>
 				<div class="tab-pane fade" id="nav-trades" role="tabpanel"
 					aria-labelledby="nav-trades-tab" aria-expanded="true">
-					<br>
+					<br>				
+					<div class="container" *ngIf="trade === undefined">
+						<b>No data available.</b>
+					</div>
+					<div class="container" *ngIf="trade !== undefined">				
 					<div *ngFor="let trade of trades">
 						<div class="row">
 							<div class="col-3">
@@ -645,9 +649,14 @@
 						<hr />
 					</div>
 				</div>
+				</div>
 				<div class="tab-pane fade" id="nav-largest-trades" role="tabpanel"
 					aria-labelledby="nav-largest-trades-tab" aria-expanded="true">
-					<br>
+					<br>				
+					<div class="container" *ngIf="largestTrades == 0">
+						<b>No data available.</b>
+					</div>					
+					<div class="container" *ngIf="largestTrades !=0 ">										
 					<div *ngFor="let largestTrade of largestTrades">
 						<div class="row">
 							<div class="col-3">
@@ -686,6 +695,7 @@
 							<div class="col">{{largestTrade.venueName}}</div>
 						</div>
 						<hr>
+					</div>
 					</div>
 				</div>
 				<div class="tab-pane fade" id="nav-stats" role="tabpanel"
