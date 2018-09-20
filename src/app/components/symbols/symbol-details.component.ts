@@ -191,7 +191,6 @@ export class SymbolDetailsComponent implements OnInit {
         }
         else {
           this.largestTrades = response;
-          alert("ICI: " + this.largestTrades);
         }
       },
       error => {
