@@ -78,49 +78,38 @@
 			<img src="{{logo}}" />
 		</div>
 	</div>
-
 	<br>
 	<div class="container">
 		<div class="bd-example bd-example-tabs">
-			<nav class="nav nav-tabs" id="nav-tab" role="tablist">				
-				
+			<nav class="nav nav-tabs" id="nav-tab" role="tablist">								
 				<a class="nav-item nav-link active" id="nav-earnings-tab"
 					data-toggle="tab" href="#nav-earnings" role="tab"
-					aria-controls="earnings" aria-expanded="true">Earnings</a>
-									
+					aria-controls="earnings" aria-expanded="true">Earnings</a>								
 				<a class="nav-item nav-link" id="nav-quote-tab" data-toggle="tab"
 					href="#nav-quote" role="tab" aria-controls="quote"
- 					aria-expanded="false">Quote</a> 
- 					 				
+ 					aria-expanded="false">Quote</a> 					 				
 				<a class="nav-item nav-link" id="nav-effective-spread-tab"
 					data-toggle="tab" href="#nav-effective-spread" role="tab"
-					aria-controls="profile" aria-expanded="false">Effective spread</a>
-					
+					aria-controls="profile" aria-expanded="false">Effective spread</a>					
 				<a class="nav-item nav-link" id="nav-financials-tab"
 					data-toggle="tab" href="#nav-financials" role="tab"
-					aria-controls="financials" aria-expanded="false">Financials</a> 
-					
+					aria-controls="financials" aria-expanded="false">Financials</a> 					
 				<a class="nav-item nav-link" id="nav-trades-tab" data-toggle="tab"
 					href="#nav-trades" role="tab" aria-controls="trades"
-					aria-expanded="false">Trades</a> 
-					
+					aria-expanded="false">Trades</a> 				
 				<a class="nav-item nav-link"
 					id="nav-largest-trades-tab" data-toggle="tab"
 					href="#nav-largest-trades" role="tab"
-					aria-controls="largest-trades" aria-expanded="false">Largest trades</a> 
-					
+					aria-controls="largest-trades" aria-expanded="false">Largest trades</a> 				
 				<a class="nav-item nav-link" id="nav-stats-tab"
 					data-toggle="tab" href="#nav-stats" role="tab"
-					aria-controls="stats" aria-expanded="false">Key Stats</a> 
-				
+					aria-controls="stats" aria-expanded="false">Key Stats</a> 				
 				<a class="nav-item nav-link" id="nav-peers-tab" data-toggle="tab"
 					href="#nav-peers" role="tab" aria-controls="peers"
-					aria-expanded="false">Peers</a> 
-					
+					aria-expanded="false">Peers</a> 					
 				<a  class="nav-item nav-link"
 					id="nav-splits-tab" data-toggle="tab" href="#nav-splits" role="tab"
 					aria-controls="splits" aria-expanded="false">Splits</a>
-
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -156,14 +145,13 @@
 				</div>
 				<div class="tab-pane fade" id="nav-quote" role="tabpanel"
 					aria-labelledby="nav-quote-tab" aria-expanded="false">
-					<br>
-					
+					<br>				
 					<div class="row">
 						<div class="col-3">
 							<b>Symbol: </b>
 						</div>
 						<div class="col">
-							{{quote.symbol}}
+							<b>{{quote.symbol}}</b>
 						</div>
 					</div>
 					<div class="row">
@@ -291,7 +279,7 @@
 							<b>IEX RealtimePrice: </b>
 						</div>
 						<div class="col">
-							{{quote.iexRealtimePrice}}
+							{{quote.iexRealtimePrice || 'n.a.'}}
 						</div>
 					</div>					
 					<div class="row">
@@ -299,7 +287,7 @@
 							<b>IEX RealtimeSize: </b>
 						</div>
 						<div class="col">
-							{{quote.iexRealtimeSize}}
+							{{quote.iexRealtimeSize || 'n.a.'}}
 						</div>
 					</div>	
 					<div class="row">
@@ -307,7 +295,7 @@
 							<b>IEX Last Updated: </b>
 						</div>
 						<div class="col">
-							{{quote.iexLastUpdated}}
+							{{quote.iexLastUpdated || 'n.a.'}}
 						</div>
 					</div>
 					<div class="row">
@@ -395,7 +383,7 @@
 							<b>IEX Market Percent: </b>
 						</div>
 						<div class="col">
-							{{quote.iexMarketPercent}}
+							{{quote.iexMarketPercent || 'n.a.'}}
 						</div>
 					</div>									
 					<div class="row">
@@ -403,12 +391,9 @@
 							<b>IEX Volume: </b>
 						</div>
 						<div class="col">
-							{{quote.iexVolume}}
+							{{quote.iexVolume || 'n.a.'}}
 						</div>
 					</div>
-					
-				
-					
 					<div class="row">
 						<div class="col-3">
 							<b>AVG Total Volume: </b>
@@ -417,31 +402,28 @@
 							{{quote.avgTotalVolume}}
 						</div>
 					</div>
-					
 					<div class="row">
 						<div class="col-3">
 							<b>IEX Bid Price: </b>
 						</div>
 						<div class="col">
-							{{quote.iexBidPrice}}
+							{{quote.iexBidPrice || 'n.a.'}}
 						</div>
 					</div>
-					
 					<div class="row">
 						<div class="col-3">
 							<b>IEX Bid Size: </b>
 						</div>
 						<div class="col">
-							{{quote.iexBidSize}}
+							{{quote.iexBidSize || 'n.a.'}}
 						</div>
-					</div>
-					
+					</div>					
 					<div class="row">
 						<div class="col-3">
 							<b>IEX Ask Size: </b>
 						</div>
 						<div class="col">
-							{{quote.iexAskSize}}
+							{{quote.iexAskSize || 'n.a.'}}
 						</div>
 					</div>
 					<div class="row">
@@ -449,7 +431,7 @@
 							<b>Market Cap: </b>
 						</div>
 						<div class="col">
-							{{quote.marketCap}}
+							{{quote.marketCap || 'n.a.'}}
 						</div>
 					</div>
 					<div class="row">
@@ -513,7 +495,6 @@
 						</tbody>
 					</table>
 				</div>
-
 				<div class="tab-pane fade" id="nav-financials" role="tabpanel"
 					aria-labelledby="nav-financials-tab" aria-expanded="true">
 					<br>
@@ -596,7 +577,7 @@
 							<div class="col-3">
 								<b>Operating Gains Losses: </b>
 							</div>
-							<div class="col">{{financial.operatingGainsLosses}}</div>
+							<div class="col">{{financial.operatingGainsLosses || 'n.a.'}}</div>
 						</div>
 						<hr />
 					</div>
@@ -912,7 +893,7 @@
 						<div class="col-3">
 							<b>Insider Percent: </b>
 						</div>
-						<div>{{stats.insiderPercent}}</div>
+						<div>{{stats.insiderPercent || 'n.a.'}}</div>
 					</div>
 					<div class="row">
 						<div class="col-3">
@@ -942,7 +923,7 @@
 						<div class="col-3">
 							<b>YTD Change Percent: </b>
 						</div>
-						<div>{{stats.ytdChangePercentt}}</div>
+						<div>{{stats.ytdChangePercent}}</div>
 					</div>
 					<div class="row">
 						<div class="col-3">
