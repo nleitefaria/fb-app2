@@ -7,6 +7,7 @@ import { SymbolDetailsComponent } from './components/symbols/symbol-details.comp
 import { CompaniesComponent } from './components/companies/companies.component';
 import { MarketsComponent } from './components/markets/markets.component';
 import { IposComponent } from './components/ipos/ipos.component';
+import { NewsComponent } from './components/news/news.component';
 
 const routes: Routes = [
 	{
@@ -32,7 +33,11 @@ const routes: Routes = [
 	{
 		path: 'ipos',
 		component: IposComponent
-	}
+	},
+    {
+        path: 'news',
+        component: NewsComponent
+    }
 ];
 
 @NgModule({

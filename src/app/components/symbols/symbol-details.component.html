@@ -110,6 +110,9 @@
 				<a  class="nav-item nav-link"
 					id="nav-splits-tab" data-toggle="tab" href="#nav-splits" role="tab"
 					aria-controls="splits" aria-expanded="false">Splits</a>
+				<a  class="nav-item nav-link"
+					id="nav-news-tab" data-toggle="tab" href="#nav-news" role="tab"
+					aria-controls="news" aria-expanded="false">News</a>
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -1002,7 +1005,50 @@
 							<td>{{split.forFactor}}</td>
 						</tr>
 					</table>
-				</div>
+				</div>			
+				<div class="tab-pane fade" id="nav-news" role="tabpanel"
+					aria-labelledby="nav-news-tab" aria-expanded="true">
+					<br>
+					<div *ngFor="let newsData of news">
+						<div class="row">
+							<div class="col-3">
+								<b>Datetime: </b>
+							</div>
+							<div class="col">{{newsData.datetime}}</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Headline: </b>
+							</div>
+							<div class="col">{{newsData.headline}}</div>
+						</div>					
+						<div class="row">
+							<div class="col-3">
+								<b>Source: </b>
+							</div>
+							<div class="col">{{newsData.source}}</div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>URL: </b>
+							</div>
+							<div class="col"><a href="{{newsData.url}}" target="_blank">Details</a></div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>Summary: </b>
+							</div>
+							<div class="col">{{newsData.summary}}</div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>Related: </b>
+							</div>
+							<div class="col">{{newsData.related}}</div>
+						</div>	
+						<hr>		
+					</div>
+				</div>			
 			</div>
 		</div>
 	</div>

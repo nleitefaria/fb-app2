@@ -14,6 +14,7 @@ import { CompaniesComponent } from './components/companies/companies.component';
 import { HomeComponent } from './components/home/home.component';
 import { MarketsComponent } from './components/markets/markets.component';
 import { IposComponent } from './components/ipos/ipos.component';
+import { NewsComponent } from './components/news/news.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { IposComponent } from './components/ipos/ipos.component';
     HomeComponent,
     SymbolDetailsComponent,
     MarketsComponent,
-    IposComponent
+    IposComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
