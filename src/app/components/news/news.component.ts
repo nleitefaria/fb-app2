@@ -59,7 +59,6 @@ export class NewsComponent implements OnInit
     {
         if (this.myform.valid)
         {
-            alert(this.myform.value.symb);
             this.getNewsForSymb(this.myform.value.symb);           
         }
     }
