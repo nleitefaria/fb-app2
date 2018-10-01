@@ -4,10 +4,63 @@
   <li class="breadcrumb-item active">{{location}}</li>
 </ol>
 </div>
-<div class="container"> 
-
-<p>
-  news works!
-</p>
-
+<div class="container" *ngIf="symbolsLoading == true">
+<b>Loading data. Please wait...</b>
 </div>
+
+<div class="container" *ngIf="symbolsLoading == false">
+	<form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">	
+		<div class="form-group">
+		<div class="row">
+  			<div class="col"><select class="form-control" formControlName="symb">
+				<option value="">Please select a Company</option>
+				<option *ngFor="let symbol of symbols" [value]="symbol.symbol">{{symbol.name}}
+				</option>
+			</select>
+			</div>
+			<div class="col"><button type="submit" class="btn btn-primary">Search</button></div>
+		</div>
+		</div>
+	</form>
+	<br>
+					<div *ngFor="let newsData of news">
+						<div class="row">
+							<div class="col-3">
+								<b>Datetime: </b>
+							</div>
+							<div class="col">{{newsData.datetime}}</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Headline: </b>
+							</div>
+							<div class="col">{{newsData.headline}}</div>
+						</div>					
+						<div class="row">
+							<div class="col-3">
+								<b>Source: </b>
+							</div>
+							<div class="col">{{newsData.source}}</div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>URL: </b>
+							</div>
+							<div class="col"><a href="{{newsData.url}}" target="_blank">Details</a></div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>Summary: </b>
+							</div>
+							<div class="col">{{newsData.summary}}</div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>Related: </b>
+							</div>
+							<div class="col">{{newsData.related}}</div>
+						</div>	
+						<hr>		
+					</div>
+</div>
+
