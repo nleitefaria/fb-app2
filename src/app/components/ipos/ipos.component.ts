@@ -11,9 +11,10 @@ import {IposService} from '../../services/ipos.service';
 
 export class IposComponent implements OnInit 
 {
-  id: string;
-  upcomingIPOs : any[];
-  location: string = 'IPOs';
+    id: string;
+    upcomingIPOs : any[];
+    todaysIPOs : any[];
+    location: string = 'IPOs';
 
   constructor(private route: ActivatedRoute, private httpService: IposService) {
     this.route.params.subscribe((params) => {
@@ -27,6 +28,7 @@ export class IposComponent implements OnInit
 
   init() {
     this.getUpcomingIpos();
+    this.getTodaysIpos();
   }
 
   getUpcomingIpos() {
@@ -36,8 +38,7 @@ export class IposComponent implements OnInit
           alert('Server Error');
         } else {
 
-          this.upcomingIPOs = response.rawData;
-          //alert(this.ipo);									
+          this.upcomingIPOs = response.rawData;									
         }
       },
       error => {
@@ -46,5 +47,26 @@ export class IposComponent implements OnInit
     );
 
   }
+  
+  getTodaysIpos() {
+      this.httpService.getTodaysIpos().subscribe(
+        response => 
+        {
+          if (response.error) 
+          {
+            alert('Server Error');
+          } 
+          else 
+          {
+            this.todaysIPOs = response.rawData; 
+            console.log(this.todaysIPOs);
+          }
+        },
+        error => {
+          alert('Server error');
+        }
+      );
+
+    }
 
 }

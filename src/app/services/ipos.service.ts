@@ -20,5 +20,12 @@ export class IposService {
 			.map((response:Response) => response.json())
 			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
 	}
+  	
+  	public getTodaysIpos():any
+    {   
+        return this.http.get(`${this.BASE_URL}stock/market/today-ipos`)
+            .map((response:Response) => response.json())
+            .catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
+    }
 
 }
