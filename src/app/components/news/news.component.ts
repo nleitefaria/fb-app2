@@ -20,7 +20,9 @@ export class NewsComponent implements OnInit
 
     constructor(private httpService : SymbolsService, private httpService1 : NewsService) { }
 
-    ngOnInit() {
+    ngOnInit() 
+    {
+        this.symbolsLoading = true;
         this.createFormControls();
         this.createForm();
         this.init();    

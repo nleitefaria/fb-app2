@@ -113,6 +113,9 @@
 				<a  class="nav-item nav-link"
 					id="nav-news-tab" data-toggle="tab" href="#nav-news" role="tab"
 					aria-controls="news" aria-expanded="false">News</a>
+				<a  class="nav-item nav-link"
+					id="nav-ohlc-tab" data-toggle="tab" href="#nav-ohlc" role="tab"
+					aria-controls="ohlc" aria-expanded="false">OHLC</a>
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -1039,16 +1042,46 @@
 								<b>Summary: </b>
 							</div>
 							<div class="col">{{newsData.summary}}</div>
-						</div>						
-						<div class="row">
-							<div class="col-3">
-								<b>Related: </b>
-							</div>
-							<div class="col">{{newsData.related}}</div>
-						</div>	
+						</div>													
 						<hr>		
 					</div>
-				</div>			
+				</div>					
+				<div class="tab-pane fade" id="nav-ohlc" role="tabpanel"
+					aria-labelledby="nav-ohlc-tab" aria-expanded="true">
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<b>Open price: </b>
+						</div>
+						<div class="col">
+							{{ohlc.open.price}}
+						</div>
+					</div>				
+					<div class="row">
+						<div class="col-3">
+							<b>Close price: </b>
+						</div>
+						<div class="col">
+							{{ohlc.close.price}}
+						</div>
+					</div>					
+					<div class="row">
+						<div class="col-3">
+							<b>High: </b>
+						</div>
+						<div class="col">
+							{{ohlc.high}}
+						</div>
+					</div>					
+					<div class="row">
+						<div class="col-3">
+							<b>Low: </b>
+						</div>
+						<div class="col">
+							{{ohlc.low}}
+						</div>
+					</div>					
+				</div>					
 			</div>
 		</div>
 	</div>

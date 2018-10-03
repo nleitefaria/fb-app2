@@ -13,6 +13,7 @@ import { LargestTradesService } from '../../services/largest-trades.service';
 import { PeersService } from '../../services/peers.service';
 import { SplitsService } from '../../services/splits.service';
 import { NewsService } from '../../services/news.service';
+import { OhlcService } from '../../services/ohlc.service';
 
 import { SplitsFilterData } from '../../model/splits-filter-data';
 
@@ -20,7 +21,7 @@ import { SplitsFilterData } from '../../model/splits-filter-data';
     selector: 'app-symbol-details',
     templateUrl: './symbol-details.component.html',
     styleUrls: ['./symbol-details.component.css'],
-    providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService, StatsService, LargestTradesService, PeersService, SplitsService, QuoteService, NewsService]
+    providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, BooksService, StatsService, LargestTradesService, PeersService, SplitsService, QuoteService, NewsService, OhlcService]
 } )
 
 export class SymbolDetailsComponent implements OnInit {
@@ -53,8 +54,9 @@ export class SymbolDetailsComponent implements OnInit {
     selectedSplitsFilterData: SplitsFilterData = this.splitsFilterData[0];
     quote: any;
     news: any[];
+    ohlc: any;
 
-    constructor( private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService, private httpService8: LargestTradesService, private httpService9: PeersService, private httpService10: SplitsService, private httpService11: QuoteService, private httpService12: NewsService ) {
+    constructor( private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService, private httpService8: LargestTradesService, private httpService9: PeersService, private httpService10: SplitsService, private httpService11: QuoteService, private httpService12: NewsService , private httpService13: OhlcService ) {
         this.route.params.subscribe(( params ) => {
             this.id = params.id;
         } );
@@ -79,6 +81,7 @@ export class SymbolDetailsComponent implements OnInit {
         this.getSplits( this.id, '5y' );
         this.getQuotes( this.id );
         this.getNewsForSymb( this.id );
+        this.getOhlcForSymb( this.id );
     }
 
     getCompany( sym: string ) {
@@ -252,6 +255,26 @@ export class SymbolDetailsComponent implements OnInit {
         );
     }
     
+    
+    getOhlcForSymb( sym: string ) 
+    {
+        this.httpService13.getOhlcForSymb(sym).subscribe(
+                response => 
+                {
+                    if ( response.error ) 
+                    {
+                        alert( 'Server Error' );
+                    }
+                    else {
+                        this.ohlc = response;
+                    }
+                },
+                error => 
+                {
+                    alert( 'Server error' );
+                }
+            );
+    }
     
     getNewsForSymb( sym: string ) {
         this.httpService12.getAllNewsForSymb(sym).subscribe(
