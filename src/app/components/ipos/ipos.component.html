@@ -28,7 +28,7 @@
 								<b>Symbol: </b>
 							</div>
 							<div class="col">
-								<span class="symbol">{{upcomingIPO.symbol}}</span>
+								<span class="symbol"><a href="#" data-toggle="modal" data-target="#upcomingModal" >{{upcomingIPO.symbol}}</a></span>
 							</div>
 						</div>					
 						<div class="row">
@@ -123,7 +123,9 @@
 							<b>Symbol: </b>
 						</div>
 						<div class="col">
-							<span class="symbol">{{todaysIPO.symbol}}</span>
+							<span class="symbol">
+								<a href="#" data-toggle="modal" data-target="#todaysModal" >{{todaysIPO.symbol}}</a>
+							</span>
 						</div>								
 					</div>					
 					<div class="row">
@@ -212,4 +214,29 @@
 			</div>		
 		</div>
 	</div>
+</div>
+<div class="modal" id="upcomingModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        Upcoming
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal" id="todaysModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        Upcoming
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
