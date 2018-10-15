@@ -144,7 +144,7 @@
 								<td>{{earning.numberOfEstimates}}</td>
 								<td>{{earning.estimatedEPS}}</td>
 								<td>{{earning.fiscalPeriod}}</td>
-								<td>{{earning.fiscalEndDate}}</td>
+								<td>{{earning.fiscalEndDate | date: 'dd / MM / yyyy'}}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -202,10 +202,10 @@
 					</div>				
 					<div class="row">
 						<div class="col-3">
-							<b>Open Time: </b>
+							<b>Open time: </b>
 						</div>
 						<div class="col">
-							{{quote.openTime}}
+							{{quote.openTime | date: 'full'}}
 						</div>
 					</div>				
 					<div class="row">
@@ -221,7 +221,7 @@
 							<b>Close time: </b>
 						</div>
 						<div class="col">
-							{{quote.closeTime}}
+							{{quote.closeTime | date: 'full'}}
 						</div>
 					</div>	
 					<div class="row">
@@ -255,21 +255,13 @@
 						<div class="col">
 							{{quote.latestSource}}
 						</div>
-					</div>						
+					</div>										
 					<div class="row">
 						<div class="col-3">
 							<b>Latest time: </b>
 						</div>
 						<div class="col">
-							{{quote.latestTime}}
-						</div>
-					</div>						
-					<div class="row">
-						<div class="col-3">
-							<b>Latest time: </b>
-						</div>
-						<div class="col">
-							{{quote.latestUpdate}}
+							{{quote.latestUpdate | date: 'full'}}
 						</div>
 					</div>					
 					<div class="row">
@@ -591,10 +583,10 @@
 				<div class="tab-pane fade" id="nav-trades" role="tabpanel"
 					aria-labelledby="nav-trades-tab" aria-expanded="true">
 					<br>				
-					<div class="container" *ngIf="trade === undefined">
+					<div class="container" *ngIf="trades === undefined">
 						<b>No data available.</b>
 					</div>
-					<div class="container" *ngIf="trade !== undefined">				
+					<div class="container" *ngIf="trades !== undefined">				
 					<div *ngFor="let trade of trades">
 						<div class="row">
 							<div class="col-3">
@@ -650,7 +642,7 @@
 							<div class="col-3">
 								<b>Timestamp: </b>
 							</div>
-							<div class="col">{{trade.timestamp}}</div>
+							<div class="col">{{trade.timestamp | date: 'fullTime'}}</div>
 						</div>
 						<hr />
 					</div>
@@ -662,13 +654,13 @@
 					<div class="container" *ngIf="largestTrades == 0">
 						<b>No data available.</b>
 					</div>					
-					<div class="container" *ngIf="largestTrades !=0 ">										
+					<div class="container" *ngIf="largestTrades != 0 ">										
 					<div *ngFor="let largestTrade of largestTrades">
 						<div class="row">
 							<div class="col-3">
 								<b>Price: </b>
 							</div>
-							<div class="col">{{largestTrade.price}}</div>
+							<div class="col"><b>{{largestTrade.price}}</b></div>
 						</div>
 						<div class="row">
 							<div class="col-3">
@@ -680,7 +672,7 @@
 							<div class="col-3">
 								<b>Time: </b>
 							</div>
-							<div class="col">{{largestTrade.time}}</div>
+							<div class="col">{{largestTrade.time | date: 'fullTime'}}</div>
 						</div>
 						<div class="row">
 							<div class="col-3">
@@ -735,7 +727,7 @@
 						<div class="col-3">
 							<b>Week 52 Change: </b>
 						</div>
-						<div>{{stats.week52change}}</div>
+						<div>{{stats.week52change | date: 'fullTime'}}</div>
 					</div>
 					<div class="row">
 						<div class="col-3">
