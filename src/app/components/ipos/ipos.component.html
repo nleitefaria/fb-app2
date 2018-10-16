@@ -100,7 +100,7 @@
 								<b>State: </b>
 							</div>
 							<div class="col">
-								{{upcomingIPO.state}}
+								{{upcomingIPO.state || 'n.a.'}}
 							</div>
 						</div>						
 						<div class="row">
@@ -108,7 +108,7 @@
 								<b>Zip: </b>
 							</div>
 							<div class="col">
-								{{upcomingIPO.zip}}
+								{{upcomingIPO.zip || 'n.a.'}}
 							</div>
 						</div>						
 						<hr>
@@ -197,7 +197,7 @@
 								<b>State: </b>
 							</div>
 							<div class="col">
-								{{todaysIPO.state}}
+								{{todaysIPO.state || 'n.a.'}}
 							</div>
 						</div>										
 						<div class="row">
@@ -205,7 +205,7 @@
 								<b>Zip: </b>
 							</div>
 							<div class="col">
-								{{todaysIPO.zip}}
+								{{todaysIPO.zip || 'n.a.'}}
 							</div>
 						</div>						
 						<hr>																					
