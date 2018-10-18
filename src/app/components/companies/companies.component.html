@@ -87,6 +87,9 @@
 				<a class="nav-item nav-link" id="nav-financials-tab"
 					data-toggle="tab" href="#nav-financials" role="tab"
 					aria-controls="financials" aria-expanded="false">Financials</a>
+				<a class="nav-item nav-link" id="nav-volume-by-venue-tab"
+					data-toggle="tab" href="#nav-volume-by-venue" role="tab"
+					aria-controls="volume-by-venue" aria-expanded="false">Volume by venue</a>
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -233,6 +236,63 @@
 							<div class="col">{{financial.operatingGainsLosses}}</div>
 						</div>
 						<hr />
+					</div>
+				</div>
+				
+				<div class="tab-pane fade" id="nav-volume-by-venue" role="tabpanel"
+					aria-labelledby="nav-volume-by-venue-tab" aria-expanded="true">
+					<br>															
+					<div *ngFor="let volumeByVenue of volumesByVenue">						
+						<div class="row">
+							<div class="col-3">
+								<b>Volume: </b>
+							</div>
+							<div class="col">
+								{{volumeByVenue.volume}}
+							</div>
+						</div>																	
+						<div class="row">
+							<div class="col-3">
+								<b>Venue: </b>
+							</div>
+							<div class="col">
+								{{volumeByVenue.venue}}
+							</div>
+						</div>												
+						<div class="row">
+							<div class="col-3">
+								<b>Venue name: </b>
+							</div>
+							<div class="col">
+								{{volumeByVenue.venueName}}
+							</div>
+						</div>																								
+						<div class="row">
+							<div class="col-3">
+								<b>Market percent: </b>
+							</div>
+							<div class="col">
+								{{volumeByVenue.marketPercent}}
+							</div>
+						</div>	
+						
+						<div class="row">
+							<div class="col-3">
+								<b>Average Market Percent: </b>
+							</div>
+							<div class="col">
+								{{volumeByVenue.avgMarketPercent}}
+							</div>
+						</div>							
+						<div class="row">
+							<div class="col-3">
+								<b>Date: </b>
+							</div>
+							<div class="col">
+								{{volumeByVenue.date}}
+							</div>
+						</div>						
+						<hr>	
 					</div>
 				</div>
 			</div>
