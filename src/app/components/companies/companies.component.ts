@@ -7,12 +7,13 @@ import { EffectiveSpreadService } from '../../services/effective-spread.service'
 import { FinancialsService } from '../../services/financials.service';
 import { LogosService } from '../../services/logos.service';
 import { VolumeByVenueService } from '../../services/volume-by-venue.service';
+import { TimeSeriesService } from '../../services/time-series.service';
 
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.css'],
-  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, VolumeByVenueService]
+  providers: [SymbolsService, CompaniesService, EarningsService, EffectiveSpreadService, FinancialsService, LogosService, VolumeByVenueService, TimeSeriesService]
 })
 
 export class CompaniesComponent implements OnInit 
@@ -26,11 +27,11 @@ export class CompaniesComponent implements OnInit
 	effectiveSpreads : any[];
 	financials: any[];
     volumesByVenue: any[];
+    timeSeries : any[];
   	myform: FormGroup;
   	symb: FormControl;
-
 	
-	constructor(private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService, private httpService3 : EffectiveSpreadService, private httpService4 : FinancialsService, private httpService5 : LogosService, private httpService6 : VolumeByVenueService) 
+	constructor(private httpService : SymbolsService, private httpService1 : CompaniesService, private httpService2 : EarningsService, private httpService3 : EffectiveSpreadService, private httpService4 : FinancialsService, private httpService5 : LogosService, private httpService6 : VolumeByVenueService, private httpService7 : TimeSeriesService) 
 	{    
     }
 
@@ -62,9 +63,9 @@ export class CompaniesComponent implements OnInit
       		this.getEarnings(this.myform.value.symb);
       		this.getEffectiveSpreads(this.myform.value.symb);
       		this.getFinancials(this.myform.value.symb);
-      		this.getLogo(this.myform.value.symb);
-      		
-      		this.getVolumesByVenue(this.myform.value.symb);   
+      		this.getLogo(this.myform.value.symb);     		
+      		this.getVolumesByVenue(this.myform.value.symb);  
+      		this.getTimeSeries(this.myform.value.symb);
     	}
   	}
     
@@ -181,4 +182,23 @@ export class CompaniesComponent implements OnInit
         );
     }
      
+    getTimeSeries(sym : string)
+    {
+        this.httpService7.getTimeSeries(sym).subscribe(
+            response =>
+            {
+                if(response.error) 
+                { 
+                    alert('Server Error');
+                } 
+                else 
+                {                                                                                                                                
+                    this.timeSeries = response;                                               
+                }
+            },
+            error =>{
+                alert('Server error');
+            }
+        );
+    }   
 }

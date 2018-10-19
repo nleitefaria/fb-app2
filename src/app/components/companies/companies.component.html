@@ -7,7 +7,6 @@
 <div class="container" *ngIf="symbolsLoading == true">
 <b>Loading data. Please wait...</b>
 </div>
-
 <div class="container" *ngIf="symbolsLoading == false">
 	<form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">	
 		<div class="form-group">
@@ -90,6 +89,12 @@
 				<a class="nav-item nav-link" id="nav-volume-by-venue-tab"
 					data-toggle="tab" href="#nav-volume-by-venue" role="tab"
 					aria-controls="volume-by-venue" aria-expanded="false">Volume by venue</a>
+				
+				
+				<a class="nav-item nav-link" id="nav-time-series-tab"
+					data-toggle="tab" href="#nav-time-series" role="tab"
+					aria-controls="time-series" aria-expanded="false">Time series</a>
+					
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade active show" id="nav-earnings"
@@ -237,8 +242,7 @@
 						</div>
 						<hr />
 					</div>
-				</div>
-				
+				</div>				
 				<div class="tab-pane fade" id="nav-volume-by-venue" role="tabpanel"
 					aria-labelledby="nav-volume-by-venue-tab" aria-expanded="true">
 					<br>															
@@ -274,8 +278,7 @@
 							<div class="col">
 								{{volumeByVenue.marketPercent}}
 							</div>
-						</div>	
-						
+						</div>						
 						<div class="row">
 							<div class="col-3">
 								<b>Average Market Percent: </b>
@@ -294,7 +297,70 @@
 						</div>						
 						<hr>	
 					</div>
-				</div>
+				</div>															
+				<div class="tab-pane fade" id="nav-time-series" role="tabpanel"
+					aria-labelledby="nav-time-series-tab" aria-expanded="true">
+					<br>	
+					<div *ngFor="let timeSerie of timeSeries">												
+						<div class="row">
+							<div class="col-3">
+								<b>Date: </b>
+							</div>
+							<div class="col">
+								{{timeSerie.date}}
+							</div>
+						</div>													
+						<div class="row">
+							<div class="col-3">
+								<b>Open: </b>
+							</div>
+							<div class="col">
+								{{timeSerie.open}}
+							</div>
+						</div>												
+						<div class="row">
+							<div class="col-3">
+								<b>Low: </b>
+							</div>
+							<div class="col">
+								{{timeSerie.low}}
+							</div>
+						</div>																		
+						<div class="row">
+							<div class="col-3">
+								<b>Close: </b>
+							</div>
+							<div class="col">
+								{{timeSerie.close}}
+							</div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>Volume: </b>
+							</div>
+							<div class="col">
+								{{timeSerie.volume}}
+							</div>
+						</div>																		
+						<div class="row">
+							<div class="col-3">
+								<b>Unadjusted Volume: </b>
+							</div>
+							<div class="col">
+								{{timeSerie.unadjustedVolume}}
+							</div>
+						</div>						
+						<div class="row">
+							<div class="col-3">
+								<b>Change: </b>
+							</div>
+							<div class="col">
+								{{timeSerie.change}}
+							</div>
+						</div>																							
+						<hr>
+					</div>
+				</div>		
 			</div>
 		</div>
 	</div>
