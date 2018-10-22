@@ -612,7 +612,8 @@
 							<div class="col-3">
 								<b>Is ISO: </b>
 							</div>
-							<div class="col">{{trade.isISO}}</div>
+							<div class="col" *ngIf="trade.isISO === true"><span style="background-color: green;color: white">Yes</span></div>
+							<div class="col" *ngIf="trade.isISO === false"><span style="background-color: red;color: white">No</span></div> 	
 						</div>
 						<div class="row">
 							<div class="col-3">
