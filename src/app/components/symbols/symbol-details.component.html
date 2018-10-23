@@ -619,25 +619,41 @@
 							<div class="col-3">
 								<b>Is Odd Lot: </b>
 							</div>
+							<!-- 
 							<div class="col">{{trade.isOddLot}}</div>
+							-->
+							<div class="col" *ngIf="trade.isOddLot === true"><span style="background-color: green;color: white">Yes</span></div>
+							<div class="col" *ngIf="trade.isOddLot === false"><span style="background-color: red;color: white">No</span></div> 	
 						</div>
 						<div class="row">
 							<div class="col-3">
 								<b>Is Outside Regular Hours: </b>
 							</div>
+							<!-- 
 							<div class="col">{{trade.isOutsideRegularHours}}</div>
+							 -->
+							<div class="col" *ngIf="trade.isOddLot === true"><span style="background-color: green;color: white">Yes</span></div>
+							<div class="col" *ngIf="trade.isOddLot === false"><span style="background-color: red;color: white">No</span></div> 	
 						</div>
 						<div class="row">
 							<div class="col-3">
 								<b>Is Single Price Cross: </b>
 							</div>
+							<!-- 
 							<div class="col">{{trade.isSinglePriceCross}}</div>
+							 -->
+							<div class="col" *ngIf="trade.isSinglePriceCross === true"><span style="background-color: green;color: white">Yes</span></div>
+							<div class="col" *ngIf="trade.isSinglePriceCross === false"><span style="background-color: red;color: white">No</span></div> 							
 						</div>
 						<div class="row">
 							<div class="col-3">
 								<b>Is Trade Through Exempt: </b>
 							</div>
+							<!--  
 							<div class="col">{{trade.isTradeThroughExempt}}</div>
+							-->
+							<div class="col" *ngIf="trade.isTradeThroughExempt === true"><span style="background-color: green;color: white">Yes</span></div>
+							<div class="col" *ngIf="trade.isTradeThroughExempt === false"><span style="background-color: red;color: white">No</span></div> 													
 						</div>
 						<div class="row">
 							<div class="col-3">
