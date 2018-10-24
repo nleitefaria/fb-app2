@@ -5,8 +5,22 @@
 </ol>
 </div>
 <div class="container"> 
-	<br>
-	<li *ngFor="let mostActive of mostActives">
-    	{{mostActive.symbol}}
-  </li>
+    <table class="table">
+  		<thead>
+    		<tr>     
+      			<th scope="col">Symbol</th>
+      			<th scope="col">Company name</th> 
+      			<th scope="col">Primary exchange</th> 
+      			<th scope="col">Sector</th>     		
+    		</tr>
+  		</thead>
+  		<tbody>
+    		<tr *ngFor="let mostActive of mostActives">
+      			<td>{{mostActive.symbol}}</td>
+      			<td>{{mostActive.companyName}}</td> 
+      			<td>{{mostActive.primaryExchange}}</td> 
+      			<td>{{mostActive.sector}}</td>    		
+    		</tr>
+  		</tbody>
+	</table>           
 </div>
