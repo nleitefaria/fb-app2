@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MarketsComponent } from './components/markets/markets.component';
 import { IposComponent } from './components/ipos/ipos.component';
 import { NewsComponent } from './components/news/news.component';
+import { MostactiveComponent } from './components/mostactive/mostactive.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NewsComponent } from './components/news/news.component';
     SymbolDetailsComponent,
     MarketsComponent,
     IposComponent,
-    NewsComponent
+    NewsComponent,
+    MostactiveComponent  
   ],
   imports: [
     BrowserModule,

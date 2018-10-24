@@ -8,6 +8,8 @@ import { CompaniesComponent } from './components/companies/companies.component';
 import { MarketsComponent } from './components/markets/markets.component';
 import { IposComponent } from './components/ipos/ipos.component';
 import { NewsComponent } from './components/news/news.component';
+import { MostactiveComponent } from './components/mostactive/mostactive.component';
+
 
 const routes: Routes = [
 	{
@@ -37,6 +39,10 @@ const routes: Routes = [
     {
         path: 'news',
         component: NewsComponent
+    },
+    {
+        path: 'mostactive',
+        component: MostactiveComponent
     }
 ];
 
