@@ -4,7 +4,9 @@
   <li class="breadcrumb-item active">{{location}}</li>
 </ol>
 </div>
-<div class="container"> 
+
+<div *ngIf="mostActives?.length == 0" class="container"> No data available </div> 
+<div *ngIf="mostActives?.length > 0" class="container"> 
     <table class="table">
   		<thead>
     		<tr>     

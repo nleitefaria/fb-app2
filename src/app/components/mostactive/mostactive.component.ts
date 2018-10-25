@@ -37,7 +37,8 @@ export class MostactiveComponent implements OnInit
                   } 
                   else 
                   {
-                    this.mostActives = response;                                 
+                    this.mostActives = response;   
+                    console.log(this.mostActives);
                   }
                 },
                 error => {
