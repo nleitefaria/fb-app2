@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NgxPaginationModule } from 'ngx-pagination';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,6 +15,7 @@ import { MarketsComponent } from './components/markets/markets.component';
 import { IposComponent } from './components/ipos/ipos.component';
 import { NewsComponent } from './components/news/news.component';
 import { MostactiveComponent } from './components/mostactive/mostactive.component';
+import { GainersComponent } from './components/gainers/gainers.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { MostactiveComponent } from './components/mostactive/mostactive.componen
     MarketsComponent,
     IposComponent,
     NewsComponent,
-    MostactiveComponent  
+    MostactiveComponent,
+    GainersComponent  
   ],
   imports: [
     BrowserModule,
