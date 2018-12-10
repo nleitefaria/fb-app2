@@ -9,7 +9,6 @@ import { MostactiveService } from '../../services/mostactive.service';
 })
 export class MostactiveComponent implements OnInit 
 { 
-    
     mostActives : any[];
     location: string = 'Most active';
 
@@ -37,8 +36,7 @@ export class MostactiveComponent implements OnInit
                   } 
                   else 
                   {
-                    this.mostActives = response;   
-                    console.log(this.mostActives);
+                    this.mostActives = response;                     
                   }
                 },
                 error => {
