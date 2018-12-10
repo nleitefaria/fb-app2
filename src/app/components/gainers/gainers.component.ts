@@ -10,7 +10,7 @@ import { GainersService } from '../../services/gainers.service';
 export class GainersComponent implements OnInit 
 {
     gainers : any[];
-    location: string = 'Most active';
+    location: string = 'Gainers';
 
     constructor(private httpService: GainersService) 
     {       
