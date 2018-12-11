@@ -16,6 +16,7 @@ import { IposComponent } from './components/ipos/ipos.component';
 import { NewsComponent } from './components/news/news.component';
 import { MostactiveComponent } from './components/mostactive/mostactive.component';
 import { GainersComponent } from './components/gainers/gainers.component';
+import { LosersComponent } from './components/losers/losers.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GainersComponent } from './components/gainers/gainers.component';
     IposComponent,
     NewsComponent,
     MostactiveComponent,
-    GainersComponent  
+    GainersComponent,
+    LosersComponent  
   ],
   imports: [
     BrowserModule,
