@@ -56,7 +56,7 @@ export class SymbolDetailsComponent implements OnInit {
     news: any[];
     ohlc: any;
 
-    constructor( private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EarningsService, private httpService3: EffectiveSpreadService, private httpService4: FinancialsService, private httpService5: LogosService, private httpService6: BooksService, private httpService7: StatsService, private httpService8: LargestTradesService, private httpService9: PeersService, private httpService10: SplitsService, private httpService11: QuoteService, private httpService12: NewsService , private httpService13: OhlcService ) {
+    constructor( private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: EffectiveSpreadService, private httpService3: FinancialsService, private httpService4: LogosService, private httpService5: BooksService, private httpService6: StatsService, private httpService7: LargestTradesService, private httpService8: PeersService, private httpService9: SplitsService, private httpService10: QuoteService, private httpService11: NewsService , private httpService12: OhlcService ) {
         this.route.params.subscribe(( params ) => {
             this.id = params.id;
         } );
@@ -70,7 +70,6 @@ export class SymbolDetailsComponent implements OnInit {
     init() 
     {
         this.getCompany( this.id );
-        this.getEarnings( this.id );
         this.getEffectiveSpreads( this.id );
         this.getFinancials( this.id );
         this.getLogo( this.id );
@@ -99,23 +98,8 @@ export class SymbolDetailsComponent implements OnInit {
         );
     }
 
-    getEarnings( sym: string ) {
-        this.httpService2.getEarnings( sym ).subscribe(
-            response => {
-                if ( response.error ) {
-                    alert( 'Server Error' );
-                } else {
-                    this.earnings = response.earnings;
-                }
-            },
-            error => {
-                alert( 'Server error' );
-            }
-        );
-    }
-
     getEffectiveSpreads( sym: string ) {
-        this.httpService3.getEffectiveSpreads( sym ).subscribe(
+        this.httpService2.getEffectiveSpreads( sym ).subscribe(
             response => {
                 if ( response.error ) {
                     alert( 'Server Error' );
@@ -130,7 +114,7 @@ export class SymbolDetailsComponent implements OnInit {
     }
 
     getFinancials( sym: string ) {
-        this.httpService4.getFinancials( sym ).subscribe(
+        this.httpService3.getFinancials( sym ).subscribe(
             response => {
                 if ( response.error ) {
                     alert( 'Server Error' );
@@ -145,7 +129,7 @@ export class SymbolDetailsComponent implements OnInit {
     }
 
     getLogo( sym: string ) {
-        this.httpService5.getLogo( sym ).subscribe(
+        this.httpService4.getLogo( sym ).subscribe(
             response => {
                 if ( response.error ) {
                     alert( 'Server Error' );
@@ -160,7 +144,7 @@ export class SymbolDetailsComponent implements OnInit {
     }
 
     getBook( sym: string ) {
-        this.httpService6.getBook( sym ).subscribe(
+        this.httpService5.getBook( sym ).subscribe(
             response => {
                 if ( response.error ) {
                     alert( 'Server Error' );
@@ -176,7 +160,7 @@ export class SymbolDetailsComponent implements OnInit {
     }
 
     getStats( sym: string ) {
-        this.httpService7.getStats( sym ).subscribe(
+        this.httpService6.getStats( sym ).subscribe(
             response => {
                 if ( response.error ) {
                     alert( 'Server Error' );
@@ -192,7 +176,7 @@ export class SymbolDetailsComponent implements OnInit {
     }
 
     getLargestTrades( sym: string ) {
-        this.httpService8.getLargestTrades( sym ).subscribe(
+        this.httpService7.getLargestTrades( sym ).subscribe(
             response => {
                 if ( response.error ) {
                     alert( 'Server Error' );
@@ -208,7 +192,7 @@ export class SymbolDetailsComponent implements OnInit {
     }
 
     getPeers( sym: string ) {
-        this.httpService9.getAllPeers( sym ).subscribe(
+        this.httpService8.getAllPeers( sym ).subscribe(
             response => {
                 if ( response.error ) {
                     alert( 'Server Error' );
@@ -224,7 +208,7 @@ export class SymbolDetailsComponent implements OnInit {
     }
 
     getSplits( sym: string, range: string ) {
-        this.httpService10.getAllSplits( sym, range ).subscribe(
+        this.httpService9.getAllSplits( sym, range ).subscribe(
             response => {
                 if ( response.error ) {
                     alert( 'Server Error' );
@@ -240,7 +224,7 @@ export class SymbolDetailsComponent implements OnInit {
     }
 
     getQuotes( sym: string ) {
-        this.httpService11.getQuote( sym ).subscribe(
+        this.httpService10.getQuote( sym ).subscribe(
             response => {
                 if ( response.error ) {
                     alert( 'Server Error' );
@@ -255,10 +239,25 @@ export class SymbolDetailsComponent implements OnInit {
         );
     }
     
-    
+    getNewsForSymb( sym: string ) {
+        this.httpService11.getAllNewsForSymb(sym).subscribe(
+                response => {
+                    if ( response.error ) {
+                        alert( 'Server Error' );
+                    }
+                    else {
+                        this.news = response;
+                    }
+                },
+                error => {
+                    alert( 'Server error' );
+                }
+            );
+    }
+      
     getOhlcForSymb( sym: string ) 
     {
-        this.httpService13.getOhlcForSymb(sym).subscribe(
+        this.httpService12.getOhlcForSymb(sym).subscribe(
                 response => 
                 {
                     if ( response.error ) 
@@ -271,22 +270,6 @@ export class SymbolDetailsComponent implements OnInit {
                 },
                 error => 
                 {
-                    alert( 'Server error' );
-                }
-            );
-    }
-    
-    getNewsForSymb( sym: string ) {
-        this.httpService12.getAllNewsForSymb(sym).subscribe(
-                response => {
-                    if ( response.error ) {
-                        alert( 'Server Error' );
-                    }
-                    else {
-                        this.news = response;
-                    }
-                },
-                error => {
                     alert( 'Server error' );
                 }
             );

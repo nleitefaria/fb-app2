@@ -81,11 +81,8 @@
 	<br>
 	<div class="container">
 		<div class="bd-example bd-example-tabs">
-			<nav class="nav nav-tabs" id="nav-tab" role="tablist">								
-				<a class="nav-item nav-link active" id="nav-earnings-tab"
-					data-toggle="tab" href="#nav-earnings" role="tab"
-					aria-controls="earnings" aria-expanded="true">Earnings</a>								
-				<a class="nav-item nav-link" id="nav-quote-tab" data-toggle="tab"
+			<nav class="nav nav-tabs" id="nav-tab" role="tablist">																			
+				<a class="nav-item nav-link active" id="nav-quote-tab" data-toggle="tab"
 					href="#nav-quote" role="tab" aria-controls="quote"
  					aria-expanded="false">Quote</a> 					 				
 				<a class="nav-item nav-link" id="nav-effective-spread-tab"
@@ -117,39 +114,8 @@
 					id="nav-ohlc-tab" data-toggle="tab" href="#nav-ohlc" role="tab"
 					aria-controls="ohlc" aria-expanded="false">OHLC</a>
 			</nav>
-			<div class="tab-content" id="nav-tabContent">
-				<div class="tab-pane fade active show" id="nav-earnings"
-					role="tabpanel" aria-labelledby="nav-earnings-tab"
-					aria-expanded="true">
-					<br>
-					<table class="table table-hover" *ngFor="let earning of earnings">
-						<thead>
-							<tr>
-								<th>Actual EPS</th>
-								<th>Consensus EPS</th>
-								<th>Estimated EPS</th>
-								<th>Announce Time</th>
-								<th>Number Of Estimates</th>
-								<th>Estimated EPS</th>
-								<th>Fiscal Period</th>
-								<th>Fiscal End Date</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>{{earning.actualEPS}}</td>
-								<td>{{earning.consensusEPS}}</td>
-								<td>{{earning.estimatedEPS}}</td>
-								<td>{{earning.announceTime}}</td>
-								<td>{{earning.numberOfEstimates}}</td>
-								<td>{{earning.estimatedEPS}}</td>
-								<td>{{earning.fiscalPeriod}}</td>
-								<td>{{earning.fiscalEndDate | date: 'yyyy-MM-dd'}}</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="tab-pane fade" id="nav-quote" role="tabpanel"
+			<div class="tab-content" id="nav-tabContent">				
+				<div class="tab-pane fade active show" id="nav-quote" role="tabpanel"
 					aria-labelledby="nav-quote-tab" aria-expanded="false">
 					<br>				
 					<div class="row">
