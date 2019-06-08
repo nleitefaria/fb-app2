@@ -29,17 +29,7 @@ export class SymbolDetailsComponent implements OnInit {
     largestTrades: any[];
     peers: any[];
     splits: any[];
-    splitsFilterData: SplitsFilterData[] = [
-        { "id": 1, "name": "5y" },
-        { "id": 2, "name": "2y" },
-        { "id": 3, "name": "1y" },
-        { "id": 4, "name": "ytd" },
-        { "id": 5, "name": "6m" },
-        { "id": 6, "name": "3m" },
-        { "id": 7, "name": "1m" }
-    ];
 
-    selectedSplitsFilterData: SplitsFilterData = this.splitsFilterData[0];
     quote: any;
     news: any[];
     ohlc: any;
