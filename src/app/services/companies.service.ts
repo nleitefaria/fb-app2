@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 export class CompaniesService {
 
     private BASE_URL:string = environment.apiUrl;
+    private TKN:string = environment.tkn;
 
   	constructor(private http:Http) 
   	{ 
@@ -16,7 +17,7 @@ export class CompaniesService {
   	
   	public getCompany(symb: string):any
     { 	
-    	return this.http.get(`${this.BASE_URL}stock/${symb}/company`)
+    	return this.http.get(`${this.BASE_URL}stock/${symb}/company?token=${this.TKN}`)
 			.map((response:Response) => response.json())
 			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
 	}

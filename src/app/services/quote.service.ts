@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 export class QuoteService {
 
     private BASE_URL:string = environment.apiUrl;
+    private TKN:string = environment.tkn;
 
     constructor(private http:Http) 
     { 
@@ -16,8 +17,7 @@ export class QuoteService {
     
     public getQuote(symb: string):any
     {   
-      //return this.http.get(`${this.BASE_URL}stock/${symb}/splits/${range}`)
-      return this.http.get(`${this.BASE_URL}/stock/${symb}/quote`)
+      return this.http.get(`${this.BASE_URL}/stock/${symb}/quote?token=${this.TKN}`)
           .map((response:Response) => response.json())
           .catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
     }
