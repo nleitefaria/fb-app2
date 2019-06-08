@@ -3,13 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { SymbolsService } from '../../services/symbols.service';
 import { CompaniesService } from '../../services/companies.service';
 import { QuoteService } from '../../services/quote.service';
+import { StatsService } from '../../services/stats.service';
 import { LogosService } from '../../services/logos.service';
 
 @Component( {
     selector: 'app-symbol-details',
     templateUrl: './symbol-details.component.html',
     styleUrls: ['./symbol-details.component.css'],
-    providers: [LogosService, SymbolsService, CompaniesService, QuoteService]
+    providers: [LogosService, SymbolsService, CompaniesService, QuoteService, StatsService]
 } )
 
 export class SymbolDetailsComponent implements OnInit {
@@ -19,22 +20,10 @@ export class SymbolDetailsComponent implements OnInit {
     symbols: any;
     symbolsLoading: boolean;
     company: any;
-    earnings: any[];
-    effectiveSpreads: any[];
-    financials: any[];
-    book: any;
-    trades: any[];
-    ipo: any;
-    stats: any;
-    largestTrades: any[];
-    peers: any[];
-    splits: any[];
+    quote: any;  
+    stat: any;
 
-    quote: any;
-    news: any[];
-    ohlc: any;
-
-    constructor( private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: LogosService, private httpService3: QuoteService ) {
+    constructor( private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: LogosService, private httpService3: QuoteService, private httpService4: StatsService ) {
         this.route.params.subscribe(( params ) => {
             this.id = params.id;
         } );
@@ -50,6 +39,7 @@ export class SymbolDetailsComponent implements OnInit {
         this.getCompany( this.id );      
         this.getLogo( this.id );       
         this.getQuotes( this.id );
+        this.getStats( this.id );
         
     }
 
@@ -91,6 +81,22 @@ export class SymbolDetailsComponent implements OnInit {
                 }
                 else {
                     this.quote = response;
+                }
+            },
+            error => {
+                alert( 'Server error' );
+            }
+        );
+    }
+    
+    getStats( sym: string ) {
+        this.httpService4.getStats( sym ).subscribe(
+            response => {
+                if ( response.error ) {
+                    alert( 'Server Error' );
+                }
+                else {
+                    this.stat = response;
                 }
             },
             error => {
