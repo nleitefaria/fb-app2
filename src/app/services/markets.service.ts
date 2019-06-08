@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 export class MarketsService 
 {
 	private BASE_URL:string = environment.apiUrl;
+	private TKN:string = environment.tkn;
 
   	constructor(private http:Http) 
   	{ 
@@ -16,7 +17,7 @@ export class MarketsService
   	
   	public getAllMarkets():any
   	{	
-  		return this.http.get(`${this.BASE_URL}market`)
+  		return this.http.get(`${this.BASE_URL}stock/market/volume?token=${this.TKN}`)
 			.map((response:Response) => response.json())
 			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
   	}
