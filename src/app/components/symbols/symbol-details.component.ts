@@ -5,12 +5,13 @@ import { CompaniesService } from '../../services/companies.service';
 import { QuoteService } from '../../services/quote.service';
 import { StatsService } from '../../services/stats.service';
 import { LogosService } from '../../services/logos.service';
+import { BalanceSheetService } from '../../services/balance-sheet.service';
 
 @Component( {
     selector: 'app-symbol-details',
     templateUrl: './symbol-details.component.html',
     styleUrls: ['./symbol-details.component.css'],
-    providers: [LogosService, SymbolsService, CompaniesService, QuoteService, StatsService]
+    providers: [LogosService, SymbolsService, CompaniesService, QuoteService, StatsService, BalanceSheetService]
 } )
 
 export class SymbolDetailsComponent implements OnInit {
@@ -22,8 +23,9 @@ export class SymbolDetailsComponent implements OnInit {
     company: any;
     quote: any;  
     stat: any;
+    balanceSheet: any;
 
-    constructor( private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: LogosService, private httpService3: QuoteService, private httpService4: StatsService ) {
+    constructor( private route: ActivatedRoute, private httpService: SymbolsService, private httpService1: CompaniesService, private httpService2: LogosService, private httpService3: QuoteService, private httpService4: StatsService, private httpService5: BalanceSheetService ) {
         this.route.params.subscribe(( params ) => {
             this.id = params.id;
         } );
@@ -40,6 +42,7 @@ export class SymbolDetailsComponent implements OnInit {
         this.getLogo( this.id );       
         this.getQuotes( this.id );
         this.getStats( this.id );
+        this.getBalanceSheet( this.id );
         
     }
 
@@ -104,4 +107,24 @@ export class SymbolDetailsComponent implements OnInit {
             }
         );
     }
+    
+    getBalanceSheet( sym: string ) {
+        this.httpService5.getBalanceSheet( sym ).subscribe(
+            response => {
+                if ( response.error ) {
+                    alert( 'Server Error' );
+                }
+                else {
+                    this.balanceSheet = response.balancesheet;
+                }
+            },
+            error => {
+                alert( 'Server error' );
+            }
+        );
+    }
+    
+    
+    
+    
 }
