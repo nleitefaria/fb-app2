@@ -85,9 +85,12 @@
 				<a class="nav-item nav-link active" id="nav-quote-tab" data-toggle="tab"
 					href="#nav-quote" role="tab" aria-controls="quote"
  					aria-expanded="false">Quote</a> 					 				
-				<a class="nav-item nav-link" id="nav-effective-spread-tab"
-					data-toggle="tab" href="#nav-effective-spread" role="tab"
-					aria-controls="profile" aria-expanded="false">Key stats</a>					
+				<a class="nav-item nav-link" id="nav-stats-tab"
+					data-toggle="tab" href="#nav-stats" role="tab"
+					aria-controls="profile" aria-expanded="false">Key stats</a>	
+				<a class="nav-item nav-link" id="nav-balance-sheet-tab"
+					data-toggle="tab" href="#nav-balance-sheet" role="tab"
+					aria-controls="profile" aria-expanded="false">Balance sheet</a>					
 				
 			</nav>
 			<div class="tab-content" id="nav-tabContent">				
@@ -109,23 +112,7 @@
 						<div class="col">
 							{{quote.companyName}}
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-3">
-							<b>Primary Exchange: </b>
-						</div>
-						<div class="col">
-							{{quote.primaryExchange}}
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-3">
-							<b>Sector: </b>
-						</div>
-						<div class="col">
-							{{quote.sector}}
-						</div>
-					</div>					
+					</div>										
 					<div class="row">
 						<div class="col-3">
 							<b>Calculation Price: </b>
@@ -408,8 +395,8 @@
 					</div>			
 				<br>	
 				</div>
-				<div class="tab-pane fade" id="nav-effective-spread" role="tabpanel"
-					aria-labelledby="nav-effective-spread-tab" aria-expanded="false">					
+				<div class="tab-pane fade" id="nav-stats" role="tabpanel"
+					aria-labelledby="nav-advstats-tab" aria-expanded="false">					
 					<br>				
 					<div class="row">
 						<div class="col-2">
@@ -417,6 +404,18 @@
 						</div>
 						<div class="col">
 							{{stat.marketcap}}
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="nav-balance-sheet" role="tabpanel"
+					aria-labelledby="nav-balance-sheet-tab" aria-expanded="false">					
+					<br>				
+					<div class="row">
+						<div class="col-2">
+							<b>TODO : </b>
+						</div>
+						<div class="col">
+							TODO
 						</div>
 					</div>
 				</div>
