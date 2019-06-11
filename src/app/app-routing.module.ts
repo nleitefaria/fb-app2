@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { SymbolsComponent } from './components/symbols/symbols.component';
 import { SymbolDetailsComponent } from './components/symbols/symbol-details.component';
+import { ExchangesComponent } from './components/exchanges/exchanges.component';
 
 const routes: Routes = [
 	{
@@ -17,6 +18,10 @@ const routes: Routes = [
 	{
 		path: 'symbol-details/:id',
 		component: SymbolDetailsComponent
+	},
+	{
+		path: 'exchanges',
+		component: ExchangesComponent
 	}
 ];
 

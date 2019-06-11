@@ -1,0 +1,28 @@
+<div class="container">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="">Home</a></li>
+		<li class="breadcrumb-item active">{{location}}</li>
+	</ol>
+</div>
+<div class="container">
+<table class="table">
+  	<thead>
+    	<tr>     
+      		<th scope="col">Exchange</th>
+      		<th scope="col">region</th>
+      		<th scope="col">Description</th>
+      		<th scope="col">Mic</th>    
+      		<th scope="col">Exchange suffix</th>
+    	</tr>
+  	</thead>
+  	<tbody> 	
+    	<tr *ngFor="let exchange of exchanges" >
+      		<td>{{exchange.exchange}}</td>
+      		<td>{{exchange.region}}</td>
+      		<td>{{exchange.description}}</td>
+      		<td>{{exchange.mic}}</td>
+      		<td>{{exchange.exchangeSuffix}}</td>     		
+    	</tr>
+  	</tbody>
+</table>
+</div>
