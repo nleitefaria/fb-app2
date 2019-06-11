@@ -9,7 +9,7 @@
   	<thead>
     	<tr>     
       		<th scope="col">Exchange</th>
-      		<th scope="col">region</th>
+      		<th scope="col">Region</th>
       		<th scope="col">Description</th>
       		<th scope="col">Mic</th>    
       		<th scope="col">Exchange suffix</th>
@@ -21,7 +21,7 @@
       		<td>{{exchange.region}}</td>
       		<td>{{exchange.description}}</td>
       		<td>{{exchange.mic}}</td>
-      		<td>{{exchange.exchangeSuffix}}</td>     		
+      		<td>{{exchange.exchangeSuffix || 'n.a.'}}</td>     		
     	</tr>
   	</tbody>
 </table>
