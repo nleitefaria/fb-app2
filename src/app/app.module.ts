@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { SymbolsComponent } from './components/symbols/symbols.component';
 import { SymbolDetailsComponent } from './components/symbols/symbol-details.component';
 import { HomeComponent } from './components/home/home.component';
+import { ExchangesComponent } from './components/exchanges/exchanges.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SymbolsComponent,
     HomeComponent,
-    SymbolDetailsComponent
+    SymbolDetailsComponent,
+    ExchangesComponent
   ],
   imports: [
     BrowserModule,

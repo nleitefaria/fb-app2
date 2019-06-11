@@ -6,7 +6,7 @@ import 'rxjs/add/operator/catch';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class BalanceSheetService {
+export class ExchangesService {
 
     private BASE_URL:string = environment.apiUrl;
     private TKN:string = environment.tkn;
@@ -15,9 +15,9 @@ export class BalanceSheetService {
   	{ 
   	}
   	
-  	public getBalanceSheet(symb: string):any
+  	public getExchanges():any
     { 	
-    	return this.http.get(`${this.BASE_URL}stock/${symb}/balance-sheet?token=${this.TKN}`)
+    	return this.http.get(`${this.BASE_URL}ref-data/exchanges?token=${this.TKN}`)
 			.map((response:Response) => response.json())
 			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
 	}
