@@ -11,6 +11,7 @@ import { SymbolsComponent } from './components/symbols/symbols.component';
 import { SymbolDetailsComponent } from './components/symbols/symbol-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { ExchangesComponent } from './components/exchanges/exchanges.component';
+import { UsExchangesComponent } from './components/us-exchanges/us-exchanges.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ExchangesComponent } from './components/exchanges/exchanges.component';
     SymbolsComponent,
     HomeComponent,
     SymbolDetailsComponent,
-    ExchangesComponent
+    ExchangesComponent,
+    UsExchangesComponent
   ],
   imports: [
     BrowserModule,

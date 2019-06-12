@@ -1,0 +1,28 @@
+<div class="container">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="">Home</a></li>
+		<li class="breadcrumb-item active">{{location}}</li>
+	</ol>
+</div>
+<div class="container">
+<table class="table">
+  	<thead>
+    	<tr>     
+      		<th scope="col">Name</th>
+      		<th scope="col">Mic</th>
+      		<th scope="col">Tape Id</th>
+      		<th scope="col">OATS Id</th>    
+      		<th scope="col">Type</th>
+    	</tr>
+  	</thead>
+  	<tbody> 	
+    	<tr *ngFor="let usexchange of usexchanges" >
+      		<td>{{usexchange.name}}</td>
+      		<td>{{usexchange.mic}}</td>
+      		<td>{{usexchange.tapeId || 'n.a.'}}</td>
+      		<td>{{usexchange.oatsId || 'n.a.'}}</td>
+      		<td>{{usexchange.type}}</td>     		
+    	</tr>
+  	</tbody>
+</table>
+</div>
