@@ -9,7 +9,7 @@ import { UsExchangesService } from '../../services/us-exchanges.service';
 })
 export class UsExchangesComponent implements OnInit {
 
-  location: string = 'Exchanges';
+    location: string = 'U.S. Exchanges';
     usexchanges: any;
 
   	constructor(private httpService : UsExchangesService) 
