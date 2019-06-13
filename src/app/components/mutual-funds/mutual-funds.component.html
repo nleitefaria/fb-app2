@@ -1,0 +1,32 @@
+<div class="container">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="">Home</a></li>
+		<li class="breadcrumb-item active">{{location}}</li>
+	</ol>
+</div>
+<div class="container">
+<table class="table">
+  	<thead>
+    	<tr>     
+      		<th scope="col">Symbol</th>    
+      		<th scope="col" style="width: 16.66%">Name</th>    
+      		<th scope="col">Date</th>    
+      		<th scope="col">Type</th>      	
+      		<th scope="col">Region</th>
+      		<th scope="col">Currency</th>
+      		<th scope="col">Enabled</th>      		
+    	</tr>
+  	</thead>
+  	<tbody> 	
+    	<tr *ngFor="let mutualFund of mutualFunds" >
+      		<td>{{mutualFund.symbol}}</td> 
+      		<td>{{mutualFund.name}}</td> 
+      		<td>{{mutualFund.date}}</td> 
+      		<td>{{mutualFund.type}}</td>  
+      		<td>{{mutualFund.region}}</td>  
+      		<td>{{mutualFund.currency}}</td>    
+      		<td>{{mutualFund.isEnabled}}</td>     		
+    	</tr>
+  	</tbody>
+</table>
+</div>
