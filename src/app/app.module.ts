@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ExchangesComponent } from './components/exchanges/exchanges.component';
 import { UsExchangesComponent } from './components/us-exchanges/us-exchanges.component';
 import { SectorsComponent } from './components/sectors/sectors.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SectorsComponent } from './components/sectors/sectors.component';
     SymbolDetailsComponent,
     ExchangesComponent,
     UsExchangesComponent,
-    SectorsComponent
+    SectorsComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,

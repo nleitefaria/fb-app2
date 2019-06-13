@@ -5,20 +5,22 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { environment } from '../../environments/environment';
 
-@Injectable()
-export class SectorsService {
 
-	private BASE_URL:string = environment.apiUrl;
+@Injectable()
+export class TagsService {
+
+    private BASE_URL:string = environment.apiUrl;
     private TKN:string = environment.tkn;
 
   	constructor(private http:Http) 
   	{ 
   	}
   	
-  	public getSectors():any
+  	public getTags():any
     { 	
-    	return this.http.get(`${this.BASE_URL}ref-data/sectors?token=${this.TKN}`)
+    	return this.http.get(`${this.BASE_URL}ref-data/tags?token=${this.TKN}`)
 			.map((response:Response) => response.json())
 			.catch((error:any) => Observable.throw(error.json().error) || 'Server Error');
 	}
+
 }

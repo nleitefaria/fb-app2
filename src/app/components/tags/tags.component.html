@@ -1,0 +1,20 @@
+<div class="container">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="">Home</a></li>
+		<li class="breadcrumb-item active">{{location}}</li>
+	</ol>
+</div>
+<div class="container">
+<table class="table">
+  	<thead>
+    	<tr>     
+      		<th scope="col">Tag</th>      		
+    	</tr>
+  	</thead>
+  	<tbody> 	
+    	<tr *ngFor="let tag of tags" >
+      		<td>{{tag.name}}</td>     		
+    	</tr>
+  	</tbody>
+</table>
+</div>
