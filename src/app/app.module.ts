@@ -14,6 +14,8 @@ import { ExchangesComponent } from './components/exchanges/exchanges.component';
 import { UsExchangesComponent } from './components/us-exchanges/us-exchanges.component';
 import { SectorsComponent } from './components/sectors/sectors.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { MutualFundsComponent } from './components/mutual-funds/mutual-funds.component';
+import { OtcComponent } from './components/otc/otc.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { TagsComponent } from './components/tags/tags.component';
     ExchangesComponent,
     UsExchangesComponent,
     SectorsComponent,
-    TagsComponent
+    TagsComponent,
+    MutualFundsComponent,
+    OtcComponent
   ],
   imports: [
     BrowserModule,

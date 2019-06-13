@@ -8,6 +8,8 @@ import { ExchangesComponent } from './components/exchanges/exchanges.component';
 import { UsExchangesComponent } from './components/us-exchanges/us-exchanges.component';
 import { SectorsComponent } from './components/sectors/sectors.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { MutualFundsComponent } from './components/mutual-funds/mutual-funds.component';
+import { OtcComponent } from './components/otc/otc.component';
 
 const routes: Routes = [
 	{
@@ -37,6 +39,14 @@ const routes: Routes = [
 	{
 		path: 'tags',
 		component: TagsComponent
+	},
+	{
+		path: 'mutual-funds',
+		component: MutualFundsComponent
+	},
+	{
+		path: 'otc',
+		component: OtcComponent
 	}
 ];
 
