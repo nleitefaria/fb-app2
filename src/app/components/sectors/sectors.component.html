@@ -1,3 +1,20 @@
-<p>
-  sectors works!!!
-</p>
+<div class="container">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="">Home</a></li>
+		<li class="breadcrumb-item active">{{location}}</li>
+	</ol>
+</div>
+<div class="container">
+<table class="table">
+  	<thead>
+    	<tr>     
+      		<th scope="col">Sector name</th>      		
+    	</tr>
+  	</thead>
+  	<tbody> 	
+    	<tr *ngFor="let sector of sectors" >
+      		<td>{{sector.name}}</td>     		
+    	</tr>
+  	</tbody>
+</table>
+</div>
