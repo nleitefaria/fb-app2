@@ -9,6 +9,7 @@ import { UsExchangesComponent } from './components/us-exchanges/us-exchanges.com
 import { SectorsComponent } from './components/sectors/sectors.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { MutualFundsComponent } from './components/mutual-funds/mutual-funds.component';
+import { OtcComponent } from './components/otc/otc.component';
 
 const routes: Routes = [
 	{
@@ -42,6 +43,10 @@ const routes: Routes = [
 	{
 		path: 'mutual-funds',
 		component: MutualFundsComponent
+	},
+	{
+		path: 'otc',
+		component: OtcComponent
 	}
 ];
 
