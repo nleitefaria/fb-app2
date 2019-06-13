@@ -7,6 +7,7 @@ import { SymbolDetailsComponent } from './components/symbols/symbol-details.comp
 import { ExchangesComponent } from './components/exchanges/exchanges.component';
 import { UsExchangesComponent } from './components/us-exchanges/us-exchanges.component';
 import { SectorsComponent } from './components/sectors/sectors.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 const routes: Routes = [
 	{
@@ -32,6 +33,10 @@ const routes: Routes = [
 	{
 		path: 'sectors',
 		component: SectorsComponent
+	},
+	{
+		path: 'tags',
+		component: TagsComponent
 	}
 ];
 
