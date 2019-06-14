@@ -11,6 +11,7 @@ export class MutualFundsComponent implements OnInit {
 
 	location: string = 'Mutual funds';
     mutualFunds: any;
+    loading: boolean;
 
   	constructor(private httpService : MutualFundsService) 
   	{ 
@@ -23,11 +24,13 @@ export class MutualFundsComponent implements OnInit {
   	
   	init()
     {  
+    	this.loading = true;   
         this.httpService.getMutualFunds().subscribe(
 			response =>{
 				if(response.error) { 
 					alert('Server Error');
-				} else {																																
+				} else {
+					this.loading = false;																																	
 					this.mutualFunds = response;															
 				}
 			},

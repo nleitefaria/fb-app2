@@ -5,22 +5,29 @@
 	</ol>
 </div>
 <div class="container">
-<table class="table">
-  	<thead>
-    	<tr>     
-      		<th scope="col">Symbol</th>          		
-      		<th scope="col">Name</th> 
-      		<th scope="col">Date</th> 
-      		<th scope="col">Type</th>     		
-    	</tr>
-  	</thead>
-  	<tbody> 	
-    	<tr *ngFor="let otc of otcs" >
-      		<td>{{otc.symbol}}</td>       		    		
-      		<td>{{otc.name}}</td> 
-      		<td>{{otc.date}}</td> 
-      		<td>{{otc.type}}</td>      		   		
-    	</tr>
-  	</tbody>
-</table>
+<div>
+    <div *ngIf="loading" > 
+  		<strong>Loading data. Please wait ...</strong>	
+	</div> 
+	<div *ngIf="!loading" > 
+		<table class="table">
+  			<thead>
+    			<tr>     
+      				<th scope="col">Symbol</th>          		
+      				<th scope="col">Name</th> 
+      				<th scope="col">Date</th> 
+      				<th scope="col">Type</th>     		
+    			</tr>
+  			</thead>
+  			<tbody> 	
+    			<tr *ngFor="let otc of otcs" >
+      				<td>{{otc.symbol}}</td>       		    		
+      				<td>{{otc.name}}</td> 
+      				<td>{{otc.date}}</td> 
+      				<td>{{otc.type}}</td>      		   		
+    			</tr>
+  			</tbody>
+		</table>
+	</div> 	 
+</div>
 </div>
