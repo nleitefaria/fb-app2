@@ -1,0 +1,37 @@
+<div class="container">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="">Home</a></li>
+		<li class="breadcrumb-item active">{{location}}</li>
+	</ol>
+</div>
+<div class="container">
+<table class="table">
+  	<thead>
+    	<tr>     
+      		<th scope="col">Company</th>     
+      		<th scope="col">Symbol</th>     
+      		<th scope="col">Price</th>  
+      		<th scope="col">Shares</th>  
+      		<th scope="col">Amount</th>  
+      		<th scope="col">Float</th>   
+      		<th scope="col">Percent</th>  
+      		<th scope="col">Market</th>  
+      		<th scope="col">Expected</th>        				
+    	</tr>
+  	</thead>
+  	<tbody> 	
+    	<tr *ngFor="let todayIpoRawData of todayIpos.viewData" >
+      		<td>{{todayIpoRawData.Company}}</td> 
+      		<td>{{todayIpoRawData.Symbol}}</td> 
+      		<td>{{todayIpoRawData.Price}}</td>
+      		<td>{{todayIpoRawData.Shares}}</td>
+      		<td>{{todayIpoRawData.Amount}}</td> 
+      		<td>{{todayIpoRawData.Float}}</td>     		
+      		<td>{{todayIpoRawData.Percent}}</td> 
+      		<td>{{todayIpoRawData.Market}}</td> 
+      		<td>{{todayIpoRawData.Expected}}</td>
+      		 		  		
+    	</tr>
+  	</tbody>
+</table>
+</div>
