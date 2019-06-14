@@ -11,6 +11,7 @@ export class OtcComponent implements OnInit {
 
     location: string = 'OTC';
     otcs: any;
+    loading: boolean;
 
   	constructor(private httpService : OtcService) 
   	{ 
@@ -22,13 +23,15 @@ export class OtcComponent implements OnInit {
   	}
   	
   	init()
-    {  
+    { 
+    	this.loading = true;   
         this.httpService.getOtcs().subscribe(
 			response =>{
 				if(response.error) { 
 					alert('Server Error');
-				} else {																																
-					this.otcs = response;															
+				} else {
+					this.loading = false;																																	
+					this.otcs = response;  																
 				}
 			},
 			error =>{

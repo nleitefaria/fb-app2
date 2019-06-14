@@ -5,7 +5,14 @@
 	</ol>
 </div>
 <div class="container">
-<table class="table">
+
+
+<div>
+    <div *ngIf="loading" > 
+  		<strong>Loading data. Please wait ...</strong>	
+	</div> 
+	<div *ngIf="!loading" > 
+		<table class="table">
   	<thead>
     	<tr>     
       		<th scope="col">Symbol</th>    
@@ -28,5 +35,7 @@
       		<td>{{mutualFund.isEnabled}}</td>     		
     	</tr>
   	</tbody>
-</table>
+	</table>	
+	</div>
+</div>
 </div>
