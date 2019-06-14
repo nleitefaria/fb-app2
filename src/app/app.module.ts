@@ -16,6 +16,7 @@ import { SectorsComponent } from './components/sectors/sectors.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { MutualFundsComponent } from './components/mutual-funds/mutual-funds.component';
 import { OtcComponent } from './components/otc/otc.component';
+import { TodayIposComponent } from './components/today-ipos/today-ipos.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { OtcComponent } from './components/otc/otc.component';
     SectorsComponent,
     TagsComponent,
     MutualFundsComponent,
-    OtcComponent
+    OtcComponent,
+    TodayIposComponent
   ],
   imports: [
     BrowserModule,
