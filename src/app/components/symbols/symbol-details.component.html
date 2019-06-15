@@ -90,7 +90,10 @@
 					aria-controls="profile" aria-expanded="false">Key stats</a>	
 				<a class="nav-item nav-link" id="nav-balance-sheet-tab"
 					data-toggle="tab" href="#nav-balance-sheet" role="tab"
-					aria-controls="profile" aria-expanded="false">Balance sheet</a>					
+					aria-controls="profile" aria-expanded="false">Balance sheet</a>	
+				<a class="nav-item nav-link" id="nav-cash-flow-tab"
+					data-toggle="tab" href="#nav-cash-flow" role="tab"
+					aria-controls="profile" aria-expanded="false">Cash flow</a>					
 				
 			</nav>
 			<div class="tab-content" id="nav-tabContent">				
@@ -841,7 +844,7 @@
 								<b>Shareholder Equity: </b>
 							</div>
 							<div class="col">
-								{{bs.shareholderEquity}}
+								{{bs.shareholderEquity || 'n.a.'}}
 							</div>
 						</div>
 						<div class="row">
@@ -849,12 +852,145 @@
 								<b>Net tangible Assets: </b>
 							</div>
 							<div class="col">
-								{{bs.netTangibleAssets}}
+								{{bs.netTangibleAssets || 'n.a.'}}
 							</div>
 						</div>			
 					<hr>
-				</div>
-				
+				</div>				
+		</div>
+		<div class="tab-pane fade" id="nav-cash-flow" role="tabpanel"
+					aria-labelledby="nav-cash-flow-tab" aria-expanded="false">					
+					<br>						
+					<div *ngFor="let cf of cashFlow">					
+						<div class="row">
+							<div class="col-3">
+								<b>Report Date: </b>
+							</div>
+							<div class="col">
+								{{cf.reportDate || 'n.a.'}}
+							</div>
+						</div>											
+						<div class="row">
+							<div class="col-3">
+								<b>Net Income: </b>
+							</div>
+							<div class="col">
+								{{cf.netIncome || 'n.a.'}}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<b>Depreciation: </b>
+							</div>
+							<div class="col">
+								{{cf.depreciation || 'n.a.'}}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+							<div class="col-3">
+								<b>Changes in Receivables: </b>
+							</div>
+							<div class="col">
+								{{cf.changesInReceivables}}
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-3">
+								<b>Changes in Inventories: </b>
+							</div>
+							<div class="col">
+								{{cf.changesInInventories}}
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-3">
+								<b>Cash change: </b>
+							</div>
+							<div class="col">
+								{{cf.cashChange}}
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-3">
+								<b>Cash flow: </b>
+							</div>
+							<div class="col">
+								{{cf.cashFlow}}
+							</div>
+					</div>					
+					<div class="row">
+							<div class="col-3">
+								<b>Capital expenditures: </b>
+							</div>
+							<div class="col">
+								{{cf.capitalExpenditures}}
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-3">
+								<b>Investments: </b>
+							</div>
+							<div class="col">
+								{{cf.investments}}
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-3">
+								<b>Investing activity Other: </b>
+							</div>
+							<div class="col">
+								{{cf.investingActivityOther}}
+							</div>
+					</div>					
+					<div class="row">
+							<div class="col-3">
+								<b>Total investing cash flows: </b>
+							</div>
+							<div class="col">
+								{{cf.totalInvestingCashFlows}}
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-3">
+								<b>Dividends paid: </b>
+							</div>
+							<div class="col">
+								{{cf.dividendsPaid}}
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-3">
+								<b>Net borrowings: </b>
+							</div>
+							<div class="col">
+								{{cf.netBorrowings}}
+							</div>
+					</div>			
+					<div class="row">
+							<div class="col-3">
+								<b>Other financing cash flows: </b>
+							</div>
+							<div class="col">
+								{{cf.otherFinancingCashFlows}}
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-3">
+								<b>Cash flow Financing: </b>
+							</div>
+							<div class="col">
+								{{cf.cashFlowFinancing}}
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-3">
+								<b>Exchange rate effect: </b>
+							</div>
+							<div class="col">
+								{{cf.exchangeRateEffect}}
+							</div>
+					</div>			
 		</div>
 	</div>
 </div>
