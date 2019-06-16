@@ -27,7 +27,7 @@
   	<tbody> 	
     	<tr *ngFor="let mutualFund of mutualFunds" >
       		<td>{{mutualFund.symbol}}</td> 
-      		<td>{{mutualFund.name}}</td> 
+      		<td style="width: 20%" data-toggle = "tooltip" title = "{{mutualFund.name}}">{{mutualFund.name | slice:0:20}} ...</td> 
       		<td>{{mutualFund.date}}</td> 
       		<td>{{mutualFund.type}}</td>  
       		<td>{{mutualFund.region}}</td>  
