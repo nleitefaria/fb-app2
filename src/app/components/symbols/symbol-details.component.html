@@ -660,7 +660,7 @@
 								<b>Short Term Investments: </b>
 							</div>
 							<div class="col">
-								{{bs.shortTermInvestments}}
+								{{bs.shortTermInvestments || 'n.a.'}}
 							</div>
 						</div>																		
 						<div class="row">
@@ -756,7 +756,7 @@
 								<b>Current long term debt: </b>
 							</div>
 							<div class="col">
-								{{bs.currentLongTermDebt}}
+								{{bs.currentLongTermDebt || 'n.a.'}}
 							</div>
 						</div>			
 						<div class="row">
@@ -886,111 +886,110 @@
 								{{cf.depreciation || 'n.a.'}}
 							</div>
 						</div>
-					</div>
-					<div class="row">
+						<div class="row">
 							<div class="col-3">
 								<b>Changes in Receivables: </b>
 							</div>
 							<div class="col">
 								{{cf.changesInReceivables}}
 							</div>
-					</div>
-					<div class="row">
+						</div>
+						<div class="row">
 							<div class="col-3">
 								<b>Changes in Inventories: </b>
 							</div>
 							<div class="col">
 								{{cf.changesInInventories}}
 							</div>
-					</div>
-					<div class="row">
+						</div>
+						<div class="row">
 							<div class="col-3">
 								<b>Cash change: </b>
 							</div>
 							<div class="col">
 								{{cf.cashChange}}
 							</div>
-					</div>
-					<div class="row">
+						</div>
+						<div class="row">
 							<div class="col-3">
 								<b>Cash flow: </b>
 							</div>
 							<div class="col">
 								{{cf.cashFlow}}
 							</div>
-					</div>					
-					<div class="row">
+						</div>					
+						<div class="row">
 							<div class="col-3">
 								<b>Capital expenditures: </b>
 							</div>
 							<div class="col">
 								{{cf.capitalExpenditures}}
 							</div>
-					</div>
-					<div class="row">
+						</div>
+						<div class="row">
 							<div class="col-3">
 								<b>Investments: </b>
 							</div>
 							<div class="col">
 								{{cf.investments}}
 							</div>
-					</div>
-					<div class="row">
+						</div>
+						<div class="row">
 							<div class="col-3">
 								<b>Investing activity Other: </b>
 							</div>
 							<div class="col">
 								{{cf.investingActivityOther}}
 							</div>
-					</div>					
-					<div class="row">
+						</div>					
+						<div class="row">
 							<div class="col-3">
 								<b>Total investing cash flows: </b>
 							</div>
 							<div class="col">
 								{{cf.totalInvestingCashFlows}}
 							</div>
-					</div>
-					<div class="row">
+						</div>
+						<div class="row">
 							<div class="col-3">
 								<b>Dividends paid: </b>
 							</div>
 							<div class="col">
 								{{cf.dividendsPaid}}
 							</div>
-					</div>
-					<div class="row">
+						</div>
+						<div class="row">
 							<div class="col-3">
 								<b>Net borrowings: </b>
 							</div>
 							<div class="col">
-								{{cf.netBorrowings}}
+								{{cf.netBorrowings || 'n.a.'}}
 							</div>
-					</div>			
-					<div class="row">
+						</div>			
+						<div class="row">
 							<div class="col-3">
 								<b>Other financing cash flows: </b>
 							</div>
 							<div class="col">
-								{{cf.otherFinancingCashFlows}}
+								{{cf.otherFinancingCashFlows || 'n.a.'}}
 							</div>
-					</div>
-					<div class="row">
+						</div>
+						<div class="row">
 							<div class="col-3">
 								<b>Cash flow Financing: </b>
 							</div>
 							<div class="col">
 								{{cf.cashFlowFinancing}}
 							</div>
-					</div>
-					<div class="row">
+						</div>
+						<div class="row">
 							<div class="col-3">
 								<b>Exchange rate effect: </b>
 							</div>
 							<div class="col">
 								{{cf.exchangeRateEffect}}
-							</div>
-					</div>			
+						</div>
+							
 		</div>
 	</div>
 </div>
