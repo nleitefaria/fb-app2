@@ -87,14 +87,7 @@
  					aria-expanded="false">Quote</a> 					 				
 				<a class="nav-item nav-link" id="nav-stats-tab"
 					data-toggle="tab" href="#nav-stats" role="tab"
-					aria-controls="profile" aria-expanded="false">Key stats</a>	
-				<a class="nav-item nav-link" id="nav-balance-sheet-tab"
-					data-toggle="tab" href="#nav-balance-sheet" role="tab"
-					aria-controls="profile" aria-expanded="false">Balance sheet</a>	
-				<a class="nav-item nav-link" id="nav-cash-flow-tab"
-					data-toggle="tab" href="#nav-cash-flow" role="tab"
-					aria-controls="profile" aria-expanded="false">Cash flow</a>					
-				
+					aria-controls="profile" aria-expanded="false">Key stats</a>													
 			</nav>
 			<div class="tab-content" id="nav-tabContent">				
 				<div class="tab-pane fade active show" id="nav-quote" role="tabpanel"
@@ -123,55 +116,7 @@
 						<div class="col">
 							{{quote.calculationPrice}}
 						</div>
-					</div>					
-					<div class="row">
-						<div class="col-3">
-							<b>Open: </b>
-						</div>
-						<div class="col">
-							{{quote.open}}
-						</div>
-					</div>				
-					<div class="row">
-						<div class="col-3">
-							<b>Open time: </b>
-						</div>
-						<div class="col">
-							{{quote.openTime | date: 'full'}}
-						</div>
-					</div>				
-					<div class="row">
-						<div class="col-3">
-							<b>Close: </b>
-						</div>
-						<div class="col">
-							{{quote.close}}
-						</div>
-					</div>				
-					<div class="row">
-						<div class="col-3">
-							<b>Close time: </b>
-						</div>
-						<div class="col">
-							{{quote.closeTime | date: 'full'}}
-						</div>
-					</div>	
-					<div class="row">
-						<div class="col-3">
-							<b>High: </b>
-						</div>
-						<div class="col">
-							{{quote.high}}
-						</div>
-					</div>	
-					<div class="row">
-						<div class="col-3">
-							<b>Low: </b>
-						</div>
-						<div class="col">
-							{{quote.low}}
-						</div>
-					</div>					
+					</div>														
 					<div class="row">
 						<div class="col-3">
 							<b>Latest price: </b>
@@ -195,15 +140,7 @@
 						<div class="col">
 							{{quote.latestUpdate | date: 'full'}}
 						</div>
-					</div>					
-					<div class="row">
-						<div class="col-3">
-							<b>Latest volume: </b>
-						</div>
-						<div class="col">
-							{{quote.latestVolume}}
-						</div>
-					</div>						
+					</div>																
 					<div class="row">
 						<div class="col-3">
 							<b>IEX RealtimePrice: </b>
@@ -227,55 +164,7 @@
 						<div class="col">
 							{{quote.iexLastUpdated || 'n.a.'}}
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-3">
-							<b>Delayed Price: </b>
-						</div>
-						<div class="col">
-							{{quote.delayedPrice}}
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-3">
-							<b>Delayed Price Time: </b>
-						</div>
-						<div class="col">
-							{{quote.delayedPriceTime}}
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-3">
-							<b>Extended Price: </b>
-						</div>
-						<div class="col">
-							{{quote.extendedPrice}}
-						</div>
-					</div>					
-					<div class="row">
-						<div class="col-3">
-							<b>Extended Change: </b>
-						</div>
-						<div class="col">
-							{{quote.extendedChange}}
-						</div>
-					</div>					
-					<div class="row">
-						<div class="col-3">
-							<b>Extended Change Percent: </b>
-						</div>
-						<div class="col">
-							{{quote.extendedChangePercent}}
-						</div>
-					</div>					
-					<div class="row">
-						<div class="col-3">
-							<b>Extended Price Time: </b>
-						</div>
-						<div class="col">
-							{{quote.extendedPriceTime}}
-						</div>
-					</div>					
+					</div>														
 					<div class="row">
 						<div class="col-3">
 							<b>Previous close: </b>
@@ -283,31 +172,7 @@
 						<div class="col">
 							{{quote.previousClose}}
 						</div>
-					</div>					
-					<div class="row">
-						<div class="col-3">
-							<b>Change: </b>
-						</div>
-						<div class="col">
-							{{quote.change}}
-						</div>
-					</div>					
-					<div class="row">
-						<div class="col-3">
-							<b>Change: </b>
-						</div>
-						<div class="col">
-							{{quote.change}}
-						</div>
-					</div>				
-					<div class="row">
-						<div class="col-3">
-							<b>Change Percent: </b>
-						</div>
-						<div class="col">
-							{{quote.changePercent}}
-						</div>
-					</div>							
+					</div>																	
 					<div class="row">
 						<div class="col-3">
 							<b>IEX Market Percent: </b>
