@@ -44,8 +44,8 @@ export class SymbolDetailsComponent implements OnInit {
         this.getLogo( this.id );       
         this.getQuotes( this.id );
         this.getStats( this.id );
-        this.getBalanceSheet( this.id );
-        this.getCashFlow( this.id );
+        //this.getBalanceSheet( this.id );
+        //this.getCashFlow( this.id );
         
     }
 
